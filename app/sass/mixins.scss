@@ -1,0 +1,389 @@
+@mixin clearfix {
+   &:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: ".";
+    line-height: 0;
+  }
+}
+
+///// -------------------------- Banner Mixin -------------------------- /////
+
+@mixin gpBanner {
+    @include transition(all 200ms ease-out);
+    position: relative;
+    top: 0px;
+    z-index: 100;
+    display: block;
+    display: table;
+    overflow: hidden;
+    padding-top: 45px;
+    width: 100%;
+    background: #333;
+    background-attachment: fixed;
+    background-position: bottom center;
+    background-size: cover;
+    text-decoration: none;
+    margin-top:0; // This is added to prevent gp_section from adding margin //
+    @include breakpoint($gp-tablet-portrait) {
+        padding-top: 40px;
+        padding-bottom: 5px;
+    }
+    &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: -1;
+        background: rgba(33, 33, 33, 0.8);
+        content: '';
+    }
+}
+
+
+/// Margining and Padding Global Classes ///
+@mixin paddless {padding: 0 !important;}
+@mixin marginless {margin: 0 !important;}
+
+///// -------------------------- Head Info Mixins -------------------------- /////
+
+@mixin headerInfoLabel {
+    vertical-align: 5%;
+    font-size: .47em;
+    font-family: "MuseoSans-300";
+}
+
+@mixin headerInfoDescription {
+    vertical-align: 4%;
+    font-size: .45em;
+    font-family: "MuseoSans-700";
+}
+
+///// -------------------------- GP Section -------------------------- /////
+//// Custom Breakpoints add to avoid overflow and above fold issues ////
+@mixin gpSection($useContent:false) {
+    @include clearfix;
+    @include container;
+    margin-top: 1em;
+    max-width: 2200px;
+
+    @if $useContent {
+      @content;
+    } @else {
+        @include breakpoint($gp-phone) {
+            padding: 0 1em;
+        }
+
+
+        @include breakpoint($gp-tablet-only) {
+            padding: 0 3em;
+        }
+
+        @include breakpoint($gp-tablet-portrait) {
+            margin-top: 2em;
+        }
+
+        @include breakpoint($gp-desktop-small) {
+            padding: 0 5em;
+        }
+
+        @include breakpoint(1281px) {
+            padding: 0 10em;
+        }
+
+        @include breakpoint(1360px) {
+            padding: 0 16em;
+            margin-top: 1.5em;
+        }
+
+        @include breakpoint($gp-desktop-largest) {
+            padding: 0 18em;
+        }
+    }
+
+}
+
+///// -------------------------- Social Item in Fullscreen_Social -------------------------- /////
+
+@mixin fullscreenSocialItem {
+    cursor:pointer;
+    @include transition(all 200ms ease-out);
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    color: #DDD;
+    text-align: center;
+
+    &:hover:before {
+        background: rgba(33, 33, 33, 0.5) !important;
+    }
+    &:before {
+        @include transition(all 200ms ease-out);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        background: rgba(50, 50, 50, 0) !important;
+        content: '';
+    }
+    &:hover .fullscreen_social-icon {
+        @include translate3d(-1.8em, 0.25em, -5.5em, 0.8em);
+        text-shadow: 0 0 10px #fff;
+        opacity: 1;
+        // softens jagged edges from 3D transform of font
+        &.icon-twitter {
+            @include translate3d(-4em, 0.25em, -5.5em, 0.8em);
+        }
+        &.icon-google-plus {
+            @include translate3d(-4em, 0.25em, -5.5em, 0.8em);
+        }
+        &.icon-export {
+            @include translate3d(-4.25em, 0.225em, -5.5em, 0.8em);
+        }
+    }
+    &:hover .fullscreen_social-text {
+        @include translateX(0);
+        @include breakpoint($gp-tablet-portrait) {
+            @include translateX(40px);
+        }
+    }
+}
+///// -------------------------- Header Button -------------------------- /////
+
+@mixin headerButton {
+      @include user-select(none);
+      @include transition(background 100ms ease-out);
+      display: inline-block;
+      padding: 0px $header_button_padding;
+      height: 100%;
+      color: $lightBackground;
+      cursor: pointer;
+
+      @include breakpoint($gp-desktop-small) {
+          &:hover {
+              color: #fff;
+          }
+      }
+
+      &.active {
+          color: #fff;
+      }
+
+}
+
+///// -------------------------- GP ICONS -------------------------- /////
+
+@mixin gpIcon($color:inherit, $valign: middle) {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    text-transform: none;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-family: 'icomoon';
+    cursor: pointer;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $color;
+    vertical-align: $valign;
+    @content
+};
+
+///// -------------------------- GP LOGO -------------------------- /////
+
+@mixin gpLogo {
+  display: inline-block;
+  color: $white;
+  font-size: 1em;
+  line-height: 1em;
+  text-decoration: none;
+  font-weight: normal;
+  font-family: "globalpost_logosregular";
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+///// -------------------------- Columns Mixin -------------------------- /////
+
+@mixin css-columns($column-count: 2, $column-gap: 2em) {
+    -webkit-column-count: $column-count;
+    -moz-column-count: $column-count;
+    column-count: $column-count;
+    -webkit-column-gap: $column-gap;
+    -moz-column-gap: $column-gap;
+    column-gap: $column-gap;
+}
+
+///// -------------------------- Fade In/Out Animations -------------------------- /////
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@include keyframes(fadeOut) {
+    0% {
+        z-index: 10001;
+        display: block;
+        // you can also use mixins inside this mixin!
+        opacity: 1;
+    }
+    99% {
+        z-index: 1;
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        z-index: 0;
+        display: none;
+        opacity: 0;
+    }
+}
+
+
+@include keyframes(fadeIn) {
+    0% {
+        display: block;
+        // you can also use mixins inside this mixin!
+        opacity: 0;
+    }
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+
+@mixin animation($delay, $duration, $animation) {
+    -webkit-animation-name: $animation;
+    -moz-animation-name: $animation;
+    -o-animation-name: $animation;
+    animation-name: $animation;
+    -webkit-animation-duration: $duration;
+    -moz-animation-duration: $duration;
+    -o-animation-duration: $duration;
+    animation-duration: $duration;
+    -webkit-animation-delay: $delay;
+    /* this prevents the animation from restarting! */
+    -moz-animation-delay: $delay;
+    /* this prevents the animation from restarting! */
+    -o-animation-delay: $delay;
+    /* this prevents the animation from restarting! */
+    animation-delay: $delay;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */
+}
+
+.show {
+    @include animation(0ms, 1000ms, fadeIn);
+}
+
+.hidden {
+    @include animation(0ms, 1000ms, fadeOut);
+    z-index: 10;
+}
+
+
+/////// ----- Vertical Positioning ----- ////
+
+.v-align-center {
+    @include transform(translateY(-40%));
+    position: relative;
+    top: 40%;
+}
+
+.v-align-center-55 {
+    @include transform(translateY(-55%));
+    position: relative;
+    top: 55%;
+}
+
+.v-align-center-50 {
+    @include transform(translateY(-50%));
+    position: relative;
+    top: 50%;
+}
+
+@mixin v-align($ammount:50%) {
+    @include transform(translateY(-($ammount)));
+    position: relative;
+    top: $ammount;
+}
+
+@mixin h-align($ammount:50%) {
+    left: $ammount;
+    margin-left: -($ammount);
+}
+
+
+/// -------------------> Clipped Shadow Classes <------------------ ///
+
+$shadowBlur: 10px;
+$shadowBlurLarger: 20px;
+
+[class*="clipped-shadow"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    &:before {
+        position: absolute;
+        display: block;
+        box-shadow: 0 0 $shadowBlurLarger rgba(0, 0, 0, 0.36), inset 0 0 0px 1px #dddddd;
+        content: '';
+    }
+}
+
+.clipped-shadow-right-inset {
+    &:before {
+        top: -$shadowBlur;
+        right: 0;
+        bottom: -$shadowBlur;
+        left: -$shadowBlur;
+        box-shadow: inset 0 0 $shadowBlur rgba(0, 0, 0, 0.16), inset 0 0 0px 1px #dddddd;
+    }
+    .active > & {
+        visibility: hidden;
+    }
+}
+
+.clipped-shadow-right {
+    right: -$shadowBlurLarger;
+    &:before {
+        top: 0;
+        right: $shadowBlurLarger;
+        bottom: 0;
+        left: 0;
+    }
+}
+

@@ -1,0 +1,3153 @@
+////// Things to fix : vertical center alignment of navigation bar ///
+////// Deal with header setup ///////
+///// Ad Photo Credits ////
+
+///// --------------------------  l_navigation -------------------------- /////
+// MODULAR : ✔
+
+.navigation_section {
+   @include clearfix;
+    width: 100%;
+    position: relative;
+    margin-bottom: 15px;
+    @include breakpoint($gp-desktop-small) {
+        margin-bottom: 55px;
+    }
+}
+/// The header for each section
+.navigation_section-header {
+    @include transition(all 500ms ease-out);
+    color: #FFF;
+    font-family: "MuseoSans-300";
+    font-size: 30px;
+    line-height: 1.8em;
+    text-transform: uppercase;
+    //display:block;
+}
+
+/// The list items on the left side,
+.navigation_section-list-item--large {
+    @include transition(all 200ms ease-out);
+    color: #aaa;
+    font-family: "MuseoSans-500";
+    text-transform: uppercase;
+    display: block;
+    padding-top: 5px;
+    width: 100%;
+    font-size: .93em;
+    line-height: 2.1em;
+
+    @include breakpoint($gp-desktop-small) {
+        font-family: "MuseoSans-300";
+        font-size: 38px;
+    }
+}
+
+.navigation_section-list-item--small {
+    padding-top: 3px;
+    color: #AAA;
+    @include transition(all 200ms ease-out);
+    position: relative;
+    font-family: "MuseoSans-500";
+    font-size: .93em;
+    line-height: 2.1em;
+    text-transform: uppercase;
+    cursor: pointer;
+    @include breakpoint($gp-desktop-small) {
+        @include span(8 of 16);
+        &:nth-child(2n) {
+            @include span(8 of 16 omega);
+        }
+        .navigation_section-list-countries & {
+            @include span(4 of 16);
+            &:nth-child(2n) {
+                @include span(4 of 16);
+            }
+            &:nth-child(3n) {
+                @include span(4 of 16);
+            }
+            &:nth-child(4n) {
+                @include span(4 of 16 omega);
+            }
+        }
+    }
+}
+
+.navigation_section-list-item-link {
+    @include transition(all 200ms ease-out);
+    text-decoration: none;
+    color: #aaa;
+    display: inline-block;
+    position: relative;
+    left: 0;
+
+    @include breakpoint($gp-desktop-small) {
+        color: #fff;
+        display: block;
+        &:before {
+            @include transition(all 200ms ease-out);
+            content: '';
+            position: absolute;
+            top: 0;
+            left: auto;
+            right: 100%;
+            bottom: 0;
+        }
+        &:hover {
+            padding-left: .5em;
+            color: #dc5555;
+            /*  &:before {border-left-width: 5px;} */
+        }
+    }
+}
+
+///// -------------------------- GlobalPost Logo - Module -------------------------- /////
+
+.header_logo {
+    @include gpLogo;
+    font-size: .8em;
+    line-height: 2.42em;
+
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: .9em;
+        line-height: 2.2em;
+    }
+}
+.header_logo-global {
+   &:before {
+        color: $swooshBlue;
+        content: "+";
+    }
+}
+
+.header_logo-post {
+    color: $postRed;
+}
+
+///// -------------------------- GlobalPost Simplified to GP -------------------------- /////
+// MODULAR : ✔
+.header_logo_simple {
+    @include gpLogo;
+    padding: 0px 0.52em;
+    color: #aaa;
+    height: 100%;
+    vertical-align: top;
+    font-size: .65em;
+    line-height: 2.8em;
+
+    &:before {
+        color: #aaa;
+        content: "#";
+    }
+}
+
+///// -------------------------- Articles - Current Stream in Header -------------------------- /////
+// MODULAR : ✔
+.header_info {
+    display: none;
+    color: #ddd;
+    @include breakpoint($gp-desktop-small) {
+        body.scrolling & {
+            display: block;
+        }
+    }
+}
+
+.header_info-label--light {
+    @include headerInfoLabel;
+}
+
+.header_info-label--heavy {
+    @include headerInfoLabel;
+    font-family: "MuseoSans-700";
+}
+
+.header_info-description--light {
+    @include headerInfoDescription;
+    font-family: "MuseoSans-300";
+    font-size: .48em;
+}
+
+.header_info-description--heavy {
+    @include headerInfoDescription;
+}
+
+
+///// -------------------------- HEADER BUTTONS - MODULE ------------------------- /////
+// MODULAR : ✔
+
+.header_button {
+  @include headerButton;
+  padding: 0px $header_button_padding_reduced;
+}
+
+.header_button--left {
+    @include headerButton;
+    height: 100%;
+    border-right: 1px solid #555;
+
+    @include breakpoint($gp-desktop-small) {
+        &:hover {
+            background: #191919;
+        }
+    }
+
+    &.active {
+        background: #151515;
+    }
+
+}
+
+.header_button--right {
+    @include headerButton;
+    height: 100%;
+    border-left: 1px solid #555;
+
+    @include breakpoint($gp-desktop-small) {
+        &:hover {
+            background: #191919;
+        }
+    }
+
+    &.active {
+        background: #151515;
+    }
+}
+
+.header_button-icon {
+        @include gpIcon {
+        width: .9em;
+        height: 1em;
+        vertical-align: top;
+        font-size: .65em;
+        line-height: 2.8em;
+    }
+}
+
+.header_button-label {
+    display:inline-block;
+    padding-top: .26em;
+    height: 100%;
+    vertical-align: top;
+    letter-spacing: .03em;
+    font-size: .45em;
+    font-family: "MuseoSans-500";
+
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: .4em;
+    }
+}
+
+.header_button-export {
+    &:before {
+        content: "\e656";
+    }
+
+    [class*="header_button"].active & {
+        &:before {
+        content: "\e649";
+      }
+
+      @include breakpoint($gp-tablet-portrait) {
+          padding-left:3px;
+      }
+
+    }
+}
+
+.header_button-menu {
+    &:before {
+        content: "\e651";
+    }
+
+    [class*="header_button"].active & {
+        &:before {
+        content: "\e649";
+      }
+      @include breakpoint($gp-desktop-small){
+          padding-left:3px;
+      }
+    }
+}
+
+
+.header_button-chapters {
+    &:before {
+        content: "\e609";
+    }
+
+    [class*="header_button"].active & {
+        &:before {
+        content: "\e649";
+      }
+
+      @include breakpoint($gp-tablet-portrait) {
+          padding-left:3px;
+      }
+
+    }
+}
+
+
+.header_button-cta {
+    @include box-shadow(#2f2f2f 1px 0px 0px);
+    @include border-radius(3px);
+    @include transition(background 400ms ease-out);
+    padding: 12px 12px 10px 12px;
+    background: $buttonBackground;
+    vertical-align: middle;
+    font-size: .36em;
+    font-family: "MuseoSans-500";
+    &:hover {
+        background: $postRed;
+        color: #FFF;
+    }
+}
+
+///// -------------------------- STREAM-OVERLAY - FOR TABLET AND MOBILE - MODULE-------------------------- /////
+// MODULAR : ✔
+
+#latest_news-wrapper {
+    @include transition(all 100ms ease-out);
+    position: fixed;
+    z-index: 9999;
+    display: block;
+    overflow: hidden;
+    overflow-y: auto;
+    margin-top: 0px;
+    width: 100%;
+    height: 0%;
+    background: #eee;
+    line-height: 10px;
+    &.is-visible {
+        height: 100%;
+    }
+}
+
+.latest_news {
+    position: relative;
+    padding: 20px 10px 40px 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.latest_news-item {
+    display: block;
+    margin: 0px 0px 15px 0px;
+    padding: 0px 0px 20px 0px;
+    min-height: 50px;
+    max-height: 150px;
+    width: 100%;
+    border-bottom: 1px dotted #bbb;
+ }
+
+.latest_news-item-photo {
+    display: none;
+    float: left;
+    margin-right: 12px;
+    width: 100px;
+    height: 66px;
+    background: #999;
+    @include breakpoint($gp-tablet-portrait) {
+        display: block;
+    }
+}
+.latest_news-item-time {
+    margin-bottom: 7px;
+    color: #c2c1bf;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-family: "MuseoSans-700";
+}
+.latest_news-item-headline {
+    color: #444;
+    font-size: 15px;
+    font-family: "MuseoSans-500";
+    line-height: 22px;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 18px;
+        font-family: "MuseoSans-700";
+    }
+}
+
+
+// ///// -------------------------- Homepage Latest News Carousel -------------------------- /////
+// MODULAR : ✔
+
+.gp_carousel-wrapper {
+        height: 100px;
+        position: relative;
+        margin-top: 0;
+        margin-bottom: 0em;
+        padding: 1em 2em;
+        max-width: 4000px;
+        background: #eee;
+        background-position: center center;
+        background-repeat: repeat;
+}
+
+.gp_carousel {
+    position: absolute;
+    overflow:hidden;
+    left: 180px;
+    right: 90px;
+    height: 70px;
+  }
+
+
+.gp_carousel-list {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gp_carousel-list-item {
+    float: left;
+    margin-right: 10px;
+    width: 280px;
+    height: 100%;
+    text-align: center;
+    padding: 15px 20px;
+    background: #fafafa;
+    color: #333;
+    cursor: pointer;
+    @include box-sizing(border-box);
+    @include box-shadow(rgba(0, 0, 0, 0.2) 1px 1px 1px);
+
+    &:hover {
+        background: #dfdfdf;
+    }
+    &:hover .gp_carousel-headline {
+        //text-decoration: underline;
+    }
+}
+
+.gp_carousel-headline {
+    display: block;
+    height: 100%;
+    text-align: left;
+    font-size: 14px;
+    font-family: "MuseoSans-300";
+    line-height: 1.4em;
+}
+
+.gp_carousel-control {
+    position:relative;
+    @include v-align(40%);
+    position:absolute;
+    right: 0;
+    right: 25px;
+    width: 35px;
+}
+
+.gp_carousel-control--prev {
+    width: 100%;
+    &:before {
+        @include transition(all 200ms ease-out);
+        @include transform(rotate(45deg));
+        position: absolute;
+        top: 38%;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border-bottom: 0.07em solid #555;
+        border-left: 0.07em solid #555;
+        content: '';
+    }
+    &:hover {
+        &:before {
+            border-bottom: 0.07em solid #888;
+            border-left: 0.07em solid #888;
+        }
+    }
+}
+
+.gp_carousel-control--next {
+    right: 0;
+    left: auto;
+    width: 100%;
+    &:before {
+        @include transition(all 200ms ease-out);
+        @include transform(rotate(-45deg));
+        position: absolute;
+        top: 38%;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        border-right: 0.07em solid #555;
+        border-bottom: 0.07em solid #555;
+        content: '';
+    }
+    &:hover {
+        &:before {
+            border-right: 0.07em solid #888;
+            border-bottom: 0.07em solid #888;
+        }
+    }
+}
+
+[class*="gp_carousel-shadow"] {
+    @include box-shadow(rgba(0, 0, 0, 0.65) 0px 0px 5px);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 50px;
+}
+
+.gp_carousel-shadow-right {
+    left: 100%;
+}
+
+.gp_carousel-shadow-left {
+    right: 100%;
+}
+
+.gp_carousel-button {
+  height: 100%;
+  position:relative;
+  width: 160px;
+  float:left;
+};
+
+.gp_carousel-button-inner {
+  @include v-align(40%);
+  @include transition(all 200ms ease-out);
+  z-index: 2;
+  padding: 0px 3px 0px 3px;
+  color: #444;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 17px;
+  font-family: "MuseoSans-700";
+      a {
+          color: #444;
+          text-decoration: none;
+          &:hover {
+              text-decoration: underline;
+          }
+      }
+}
+
+
+///// -------------------------- STREAM ARTICLE- MODULE -------------------------- /////
+// MODULAR : ✔
+
+///// ------ Dark Menu Theme ------ /////
+$menubackground: #444444;
+$menuTime: #555555;
+$menuHeadline: #222222;
+$itemBorder: #cccccc;
+$itemShadow: #505050;
+$hover: #555555;
+$shadowColor: rgba(22, 22, 22, 0.3);
+$fontSize: "MuseoSans-500";
+
+.article_stream {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    width: 100%;
+    font-size: 16px;
+    line-height: 0;
+}
+
+.article_stream-item {
+    @include box-shadow($itemBorder 0px -1px 0px inset);
+    @include transition(all 200ms ease-in);
+    position: relative;
+    padding: 20px 0px 20px 0px;
+    padding-right: 1.5em;
+    padding-left: 1.5em;
+    min-height: 70px;
+    width: 100%;
+    opacity: 1;
+    cursor: pointer;
+    @include breakpoint($gp-tablet-portrait) {
+        padding: 15px 18px 5px 18px;
+        opacity: .7;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        padding: 18px 18px 18px 22px;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        min-height: 115px;
+    }
+
+    &:first-child {
+        @include transition(all 200ms ease-in);
+        display: block;
+        padding: 20px 0px 13px 0px;
+        padding-right: 1.5em;
+        padding-left: 1.5em;
+        min-height: 0;
+        @include breakpoint($gp-desktop-small) {
+            display: none;
+            body.scrolling & {
+                padding: 20px 0px 13px 0px;
+                padding-right: 1.5em;
+                padding-left: 1.5em;
+                height: 100%;
+            }
+        }
+    }
+    &:last-child:before {
+        border-bottom: 0;
+    }
+    &:hover {
+        opacity: 1;
+        @include breakpoint($gp-tablet-portrait) {
+            background: gba(150, 150, 150, 0.2);
+        }
+    }
+    &.active {
+        background: rgba(190, 190, 190, 0.2);
+        opacity: 1;
+        &:before {
+            border-left-width: 8px;
+            @include breakpoint($gp-tablet-portrait) {
+                border-left-width: 8px;
+            }
+        }
+    }
+    &:before {
+        @include transition(border-left 400ms ease-in);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        display: block;
+        width: 0;
+        border-left: 0px solid rgba(220, 85, 85, 1);
+        content: "";
+        @include breakpoint($gp-tablet-portrait) {
+            @include transition(border-left 400ms ease-in);
+            width: 0;
+            border-left: 0px solid rgba(220, 85, 85, 1);
+        }
+    }
+    .horizontal & {
+        float: left;
+        width: 280px;
+        height: $topMenuHeight;
+        border-right: #ccc 1px solid;
+        border-bottom: 0;
+        white-space: normal;
+    }
+}
+
+.article_stream-item-photo {
+    @include transition(all 200ms ease-in);
+    position: relative;
+    display: block;
+    display: none;
+    float: right;
+    overflow: hidden;
+    margin-bottom: 15px;
+    margin-left: 15px;
+    width: 40%;
+    height: 0;
+    background: #999;
+    background-position: center center;
+    background-size: cover;
+    @include breakpoint($gp-tablet-portrait) {
+        display: block;
+        float: left;
+        margin-right: 15px;
+        margin-left: 0;
+        width: 100px;
+        padding-bottom: 21%;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        display: none;
+        width: 100px;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        display: block;
+        width: 100px;
+        padding-bottom: 24%;
+        height: 0;
+        background-position: center center;
+        background-size: cover;
+    }
+}
+
+.article_stream-item-text {
+    position: relative;
+    margin-left: 0;
+    font-size: 12px;
+    line-height: 17px;
+    @include breakpoint($gp-tablet-portrait) {
+        margin-left: 85px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        margin-left: 0;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        margin-left: 115px;
+        //margin-left:0;
+    }
+}
+
+.article_stream-item-time {
+    margin-bottom: 7px;
+    color: $menuTime;
+    text-transform: uppercase;
+    font-size: 11px;
+    font-family: "MuseoSans-700";
+}
+
+.article_stream-item-headline {
+    color: $menuHeadline;
+    font-size: 16px;
+    font-family: "MuseoSans-700";
+    line-height: 1.3em;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 13px;
+        font-family: "MuseoSans-500";
+    }
+}
+
+.article_stream-item-header {
+    color: #777;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: "MuseoSans-500";
+    line-height: 1.4em;
+    span {
+        margin-left: 1px;
+        color: #444;
+        text-transform: none;
+        font-size: 14px;
+        font-family: "MuseoSans-700";
+    }
+    @include breakpoint($gp-tablet-portrait) {
+        display: block;
+        height: 100%;
+        font-family: "MuseoSans-500";
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        @include transform(translateY(0));
+        position: relative;
+        top: auto;
+        left: auto;
+        display: block;
+        font-family: "MuseoSans-500";
+    }
+}
+
+.article_stream-item-subhead {
+    display: block;
+    margin-top: 8px;
+    color: #595959;
+    font-size: 13px;
+    font-family: "MuseoSans-300";
+    line-height: 19px;
+    @include breakpoint($gp-tablet-portrait) {
+        display: none;
+    }
+}
+
+///// -------------------------- BANNER MODULE -------------------------- /////
+// MODULAR : ✔
+
+
+.gp_banner--small {
+  @include gpBanner;
+   padding-left: 35px;
+}
+
+.gp_banner--medium {
+    @include gpBanner;
+
+    @include breakpoint($gp-tablet-portrait) {
+        min-height: 200px;
+    }
+}
+
+.gp_banner--large {
+  @include gpBanner;
+  @include breakpoint($gp-tablet-portrait) {
+      min-height:300px;
+      padding-top: 80px;
+      padding-bottom: 30px;
+  }
+
+  &:before {
+        background: rgba(33, 33, 33, 0.9);
+  }
+}
+
+
+.gp_banner-text {
+    @include transition(all 200ms ease-out);
+    position: relative;
+    display: table-cell;
+    padding-top: 5px;
+    padding-bottom: 20px;
+    width: 100%;
+    color: #FFFFFF;
+    vertical-align: top;
+    text-transform: uppercase;
+    font-size: 28px;
+    font-family: "MuseoSans-900";
+    line-height: .8em;
+    cursor: pointer;
+    @include breakpoint($gp-tablet-portrait) {
+        padding-top: 0;
+        vertical-align: middle;
+        font-size: 48px;
+    }
+}
+
+.gp_banner-text_center {
+   text-align: center;
+}
+
+.gp_banner-headline {
+    position: relative;
+    display: inline-block;
+}
+
+.gp_banner-subhead {
+    position: relative;
+    display: none;
+    padding: 0px 0px 0px 0px;
+    color: #FFFFFF;
+    text-transform: none;
+    font-family: "MuseoSans-500";
+
+    @include breakpoint($gp-tablet-portrait) {
+        display: inline-block;
+        font-size: 16px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 20px;
+    }
+}
+
+.gp_banner-body {
+    @include transition(all 200ms ease-out);
+    display: none;
+    text-transform: none;
+    position: relative;
+    display: block;
+    margin-top: 1em;
+    color: #fff;
+    font-size: 15px;
+    font-family: "MuseoSans-300";
+    line-height: 1.6em;
+    @include breakpoint($gp-desktop-small) {
+        margin-top: 1.4em;
+        font-size: 16px;
+    }
+
+    p {
+        margin-bottom: 15px;
+    }
+}
+
+
+
+///// -------------------------- ARTICLE MODULE -------------------------- /////
+/// FIX ME
+
+.article {
+    padding: 0 20px 0 35px;
+    @include breakpoint($gp-tablet-portrait) {
+        padding: 0 0 0 45px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        padding: 0 0 0 35px;
+    }
+}
+
+.article-header {
+    margin: 20px 0px 20px 0;
+
+    @include breakpoint($gp-tablet-portrait) {
+        margin: 40px 0 35px 0;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        margin: 40px 360px 25px 0;
+    }
+}
+
+.article-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.article-content {
+    @include breakpoint($gp-tablet-portrait) {
+        margin-right: 360px;
+    }
+}
+
+.article-photo {
+    display: block;
+    width: 100%;
+}
+
+.article-photo-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.article-body {
+    position: relative;
+    margin-top: 15px;
+    width: 100%;
+    height: 100%;
+    @include breakpoint($gp-desktop-small) {
+        margin-top: 30px;
+    }
+}
+
+.article-text {
+    margin-left: 0;
+    padding-top: 65px;
+    max-width: 700px;
+    color: #292929;
+    font-size: 16px;
+    font-family: "MuseoSans-300";
+    line-height: 29px;
+    @include breakpoint($gp-desktop-small) {
+        margin-left: 85px;
+        padding-top: 0;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        margin-left: 165px;
+    }
+
+    p {
+        margin-bottom: 25px;
+    }
+}
+
+
+///// -------------------------- VIDEO MODULE -------------------------- /////
+// MODULAR : ✔
+
+.gp_article_video {
+    width: 100%;
+    position: relative;
+    height: 0;
+    padding-top: 9 / 16 * 100%;
+}
+
+.gp_article_video-inner {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+///// -------------------------- ARTICLE Headline -------------------------- /////
+// MODULAR : ✔
+
+.article_headline {
+    margin: 10px 15px 12px 0;
+    font-size: 26px;
+    font-family: "MuseoSans-700";
+    line-height: 32px;
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 38px;
+        line-height: 50px;
+    }
+}
+
+.article_information {
+    @include clearfix;
+    display: block;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: "MuseoSans-700";
+    color: #595959;
+    position: relative;
+    margin: 0px 15px 0px 0;
+}
+
+///// -------------------------- ARTICLE Attributes - Name - Date -------------------------- /////
+// MODULAR : ✔
+
+.article_attr {
+    position: relative;
+    float: left;
+    padding-top: 13px;
+    font-size: 12px;
+    line-height: 1.5em; // for double lines on mobile
+    font-family: "MuseoSans-500";
+}
+
+.article_attr-byline {
+    @include transition(all 200ms ease-out);
+    text-decoration: none;
+    color: #333;
+    font-family: "MuseoSans-700";
+    &:hover {
+        color: #dc5555;
+    }
+}
+
+.article_attr-date {
+    margin-left: 0;
+    margin-right: 10px;
+    color: #444;
+}
+
+
+///// -------------------------- ARTICLE TAXONOMY -------------------------- /////
+// MODULAR : ✔
+
+.article_taxonomy {
+    position: relative;
+    float: left;
+    margin-right: 10px;
+    @include breakpoint($gp-tablet-portrait) {
+        margin-right: 10px;
+    }
+}
+
+.article_taxonomy-icon {
+    @include gpIcon {
+        margin-left: 5px;
+        vertical-align: baseline;
+    }
+}
+
+.article_taxonomy-button {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    padding: 13px 15px 10px 15px;
+    background: #eeeeee;
+    text-decoration: none;
+    color: #555;
+}
+
+.article_taxonomy-list {
+    position: absolute;
+    @include animation(0ms, 200ms, fadeIn);
+    top: 0;
+    left: 0;
+    z-index: 10;
+    background: #eeeeee;
+    display: none;
+    :hover > & {
+        display: block;
+    }
+}
+
+.article_taxonomy-list-item {
+    display: block;
+    @include transition(all 200ms ease-out);
+    border-bottom: 1px solid #bbb;
+    &:hover {
+        background: #dc5555;
+        a {
+            color: #fff;
+        }
+    }
+    &:last-child {
+        border-bottom: 0 !important;
+    }
+    a {
+        text-decoration: none;
+        color: #444;
+        display: block;
+        padding: 13px 15px 10px 15px;
+    }
+}
+
+
+///// --------------------------  Article Pull Quote -------------------------- /////
+// MODULAR : ✔
+.gp_pullquote {
+    margin: 1.4em 0;
+    @include transition(all 200ms ease-in);
+    width: 100%;
+    padding: 20px 20px 0px 20px;
+
+    &:hover .gp_pullquote-social {
+        background: #dc5555;
+    }
+    &:hover .gp_pullquote-social_icons {
+        color: #fff;
+    }
+}
+
+.gp_pullquote--left {
+    width: 100%;
+    float: left;
+    margin: 10px 35px 10px 0px;
+    padding-top: 0px;
+
+    @include breakpoint($gp-desktop-medium) {
+        width: 50%;
+    }
+}
+
+.gp_pullquote--right {
+    width: 100%;
+    float: right;
+    margin: 10px 0px 10px 35px;
+    padding-top: 20px;
+    @include breakpoint($gp-desktop-medium) {
+        width: 50%;
+    }
+}
+
+.gp_pullquote-social {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 15px;
+    @include transition(all 200ms ease-in);
+    height: 40px;
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding: 6px 10px 0 0;
+    background: #eeeeee;
+}
+
+.gp_pullquote-social_icons {
+    @include gpIcon {
+        margin-left: 13px;
+        color: #aaa;
+        font-size: 18px;
+        @include transition(all 200ms ease-out);
+        &:hover {
+            color: #551111 !important;
+        }
+    }
+}
+
+.gp_pullquote-text {
+    font-family: "MuseoSans-300Italic";
+    font-size: 36px;
+    line-height: 1.35em;
+    color: #dc5555;
+    text-transform: uppercase;
+    display: block;
+    &:before,
+    &:after {
+        content: '"';
+        font-family: "MuseoSans-900Italic";
+        font-size: 40px;
+        display: inline;
+        color: #dc5555;
+        line-height: 1.2em;
+    }
+}
+
+.gp_pullquote-author {
+    font-family: "MuseoSans-500";
+    font-size: 14px;
+    white-space: nowrap;
+    display: block;
+    color: #666;
+    line-height: 3em;
+    text-transform: uppercase;
+}
+
+
+
+///// -------------------------- Article Listicle Formatting -------------------------- /////
+// MODULAR : ✔
+
+.gp_listicale-item {
+    margin-bottom: 45px;
+}
+
+.gp_listicale-item-header {
+    width: 100%;
+    position: relative;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #eee;
+    border-top: 4px solid #dc5555;
+}
+
+.gp_listicale-item-number {
+    font-family: "MuseoSans-300Italic";
+    font-size: 56px;
+    background: #dc5555;
+    padding: 20px 18px 10px 26px;
+    line-height: 1em;
+    color: #eee;
+    text-transform: uppercase;
+    display: block;
+    float: left;
+}
+
+.gp_listicale-item-title {
+    margin-top: 5px;
+    margin-left: 105px;
+    font-family: "MuseoSans-300Italic";
+    font-size: 32px;
+    line-height: 1.15em;
+    color: #dc5555;
+    display: block;
+}
+
+.gp_listicale-item-photo-credit {
+    width: 100%;
+    text-align: right;
+    font-family: "MuseoSans-300Italic";
+    font-size: 12px;
+}
+
+.gp_listicale-item-photo-caption {
+    margin-top: 5px;
+    font-family: "MuseoSans-300";
+    font-size: 15px;
+    line-height: 1.75em;
+}
+
+///// ---- Photo Gallery CALL TO ACTION ----- //////
+// MODULAR : ✔
+
+.article_gallery_cta {
+    @include transition(all 200ms ease-out);
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    z-index: 1;
+    padding: 25px 5px 20px 5px;
+    background: #eee;
+    color: #444;
+    font-size: 11px;
+    cursor: pointer;
+    &:hover {
+        background: #dc5555 !important;
+        color: #fff;
+    }
+}
+
+.article_gallery_cta-right {
+    @include span(16 of 16);
+    text-align: center;
+}
+
+.article_gallery_cta-left {
+    @include span(16 of 16);
+    text-align: center;
+    font-size: 4.5em;
+}
+
+.article_gallery_cta-icon {
+ @include gpIcon;
+}
+
+.article_gallery_cta-text {
+    display: block;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-family: "MuseoSans-700";
+    line-height: 1.8em;
+}
+
+.article_gallery_cta-ammount {
+    display: block;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-family: "MuseoSans-500";
+    line-height: 1.4em;
+}
+
+.article_gallery_cta-title {
+    display: none;
+    margin-top: 17px;
+    font-size: 20px;
+    font-family: "MuseoSans-500";
+    line-height: 1.3em;
+}
+
+///// -------------------------- ARTICLE SOCIAL TOOLS -------------------------- /////
+// MODULAR : ✔
+
+.article_social {
+    @include breakpoint($gp-desktop-small) {
+        position: absolute;
+        top: 5px;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        width: 125px;
+    }
+}
+
+.article_social-inner {
+    position: absolute;
+    top: -115px;
+    margin-top: 115px;
+    width: 100%;
+    &.is_stuck {}
+}
+
+.article_social-list {
+    position: relative;
+}
+
+.article_social-list-item {
+    @include transition(background 200ms ease-out);
+    position: relative;
+    position: relative;
+    display: block;
+    float: left;
+    margin-bottom: 0px;
+    padding: 12px 0px 15px 3px;
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    color: #DDD;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: "MuseoSans-900";
+    cursor: pointer;
+    @include breakpoint($gp-desktop-small) {
+        padding: 16px 0px 13px 5px;
+        width: 55px;
+        width: 100%;
+        height: auto;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        margin-bottom: 10px;
+        padding: 10px 13px 7px 10px;
+    }
+
+    &:hover:before {
+        background: rgba(33, 33, 33, 0.5) !important;
+    }
+    &:before {
+        @include transition(all 200ms ease-out);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        background: rgba(50, 50, 50, 0) !important;
+        content: '';
+    }
+}
+
+.article_social-icon {
+  @include gpIcon {
+    font-size: 1.4em;
+    margin-right: .2em;
+  }
+}
+
+.article_social-text {
+    position: relative;
+    z-index: 10;
+    display: none;
+    vertical-align: 0%;
+    @include breakpoint($gp-desktop-large) {
+        display: inline-block;
+    }
+}
+
+#article_social-facebook {background: #385590;}
+#article_social-twitter {background: #00bff3;}
+#article_social-google {background: #dd4b39;}
+
+
+
+///// -------------------------- ARTICLE SOCIAL COVER -------------------------- /////
+// MODULAR : ✔
+
+/// Creates 4x4 positioning
+.fullscreen_social-item-wrapper {
+    display: block;
+    min-height: 100px;
+    width: 100%;
+    height: 25%;
+    @include breakpoint($gp-desktop-small) {
+        @include with-layout(16 0) {
+            @include span(8 of 16);
+            z-index: -2;
+            height: 50%;
+                &:nth-child(2n) {
+                    @include span(8 of 16 at 9);
+                }
+            }
+        }
+}
+
+
+.fullscreen_social-item--facebook {@include fullscreenSocialItem; background: #385590;}
+.fullscreen_social-item--twitter {@include fullscreenSocialItem; background: #00bff3;}
+.fullscreen_social-item--google {@include fullscreenSocialItem; background: #dd4b39;}
+.fullscreen_social-item--more {@include fullscreenSocialItem; background: #aaa;}
+
+.fullscreen_social-item-inner {
+  @include v-align(45%);
+}
+
+.fullscreen_social-icon {
+    @include gpIcon;
+    @include transition(all 200ms ease-out);
+    position: absolute;
+    top: 0;
+    display: block;
+    display: none;
+    color: #fff;
+    font-size: 500px;
+    line-height: 0;
+    opacity: 0.15;
+    cursor: pointer;
+    @include breakpoint($gp-tablet-portrait) {
+        display: block;
+        font-size: 1000px;
+    }
+
+    &.icon-facebook {
+        @include translate3d(-0.9em, 0.15em, -2em, 0.8em);
+        @include breakpoint($gp-tablet-portrait) {
+            @include translate3d(-0.4em, 0.3em, -0.3em, 0.8em);
+        }
+    }
+    &.icon-twitter {
+        @include translate3d(-1.9em, 0.07em, -2em, 0.8em);
+        @include breakpoint($gp-tablet-portrait) {
+            @include translate3d(-0.9em, 0.2em, -0.3em, 0.8em);
+        }
+    }
+    &.icon-google-plus {
+        @include translate3d(-1.8em, 0.1em, -2em, 0.8em);
+        @include breakpoint($gp-tablet-portrait) {
+            @include translate3d(-0.6em, 0.25em, -0.3em, 0.8em);
+        }
+    }
+    &.icon-export {
+        @include translate3d(-2.2em, 0.09em, -2em, 0.8em);
+        @include breakpoint($gp-tablet-portrait) {
+            @include translate3d(-1em, 0.25em, -0.3em, 0.8em);
+        }
+    }
+}
+
+.fullscreen_social-text {
+    @include transition(all 200ms ease-out);
+    position: relative;
+    left: 0;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-family: "MuseoSans-900";
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 80px;
+    }
+}
+///// -------------------------- ABOUT MENU MODULE -------------------------- /////
+// MODULAR : ✔
+
+.about_menu {
+    position: absolute;
+    z-index: 1;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    color: #333;
+    //height:100%;
+    text-align: center;
+}
+
+[class*="about_menu-item"] {
+    position: relative;
+    display: block;
+    border-bottom: #cccccc 1px solid;
+    font: 14px/1.6 "MuseoSans-500";
+    a {
+        @include transition(all 200ms ease-out);
+        display: block;
+        padding: 25px 20px 20px 20px;
+        width: 100%;
+        color: #666;
+        text-decoration: none;
+        &:hover {
+            background: rgba(255, 255, 255, 0.1);
+            opacity: 1;
+        }
+        &:before {
+            @include transition(border-left 400ms ease-in);
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            display: block;
+            //width: 0;
+            border-left: 0px solid rgba(220, 85, 85, 1);
+            content: "";
+            @include breakpoint($gp-tablet-portrait) {
+                @include transition(border-left 400ms ease-in);
+                //width: 0;
+                border-left: 0px solid rgba(220, 85, 85, 1);
+            }
+        }
+        &.active {
+            background: rgba(190, 190, 190, 0.2);
+            opacity: 1;
+            &:before {
+                border-left-width: 8px;
+                @include breakpoint($gp-tablet-portrait) {
+                    border-left-width: 8px;
+                }
+            }
+        }
+    }
+}
+
+.about_menu-icon {
+    @include gpIcon;
+    @include text-shadow(none);
+    display: block;
+    font-size: 30px;
+}
+
+
+.about-body-icon {
+    @include text-shadow(none);
+    margin-bottom: 35px;
+    font-size: 50px;
+}
+
+///// -------------------------- ABOUT MENU MODULE -------------------------- /////
+// FIX THIS - ABOUT PAGE NEEDS ARTICLE PAGE UI MECHANICS
+
+.about-wrapper {
+    display: none;
+    margin-top: 3em;
+
+    &.active {
+        display: block;
+    }
+}
+
+.about-title {
+    margin: 0px 15px 14px 0;
+    font-size: 26px;
+    font-family: "MuseoSans-900";
+    line-height: 32px;
+    @include breakpoint($gp-tablet-portrait) {
+        margin: 0px 35px 15px 0;
+        font-size: 38px;
+        line-height: 50px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        margin: 0px 360px 12px 0;
+        font-size: 40px;
+        line-height: 50px;
+    }
+}
+
+.about-body {
+    margin-left: 0;
+    //margin-top: 15px;
+    color: #292929;
+    font-size: 16px;
+    font-family: "MuseoSans-300";
+    line-height: 27px;
+    strong {
+        margin: 20px 0px 10px 0px;
+        font-size: 17px;
+        font-family: "MuseoSans-700";
+    }
+    h2 {
+        margin: 50px 0px 18px 0px;
+        font-size: 20px;
+        font-family: "MuseoSans-700";
+        line-height: 26px;
+        @include breakpoint($gp-tablet-portrait) {
+            font-size: 26px;
+            line-height: 35px;
+        }
+    }
+    h3 {
+        margin: 30px 0px 5px 0px;
+        font-size: 17px;
+        font-family: "MuseoSans-500";
+    }
+    a {
+        color: darken(#111111, 15%);
+        text-decoration: none;
+        font-family: "MuseoSans-300";
+    }
+    .syndication-list-item {
+        margin-bottom: 2px;
+        margin-left: 45px;
+        padding-left: 5px;
+        list-style-type: disc;
+        &:first-child {
+            margin-top: 10px;
+        }
+    }
+}
+
+.about-body-section {
+    //margin-top: 3em;
+    &:first-child {
+        margin-top: 0;
+    }
+    &:last-child {
+        margin-bottom: 3em;
+    }
+}
+
+///// -------------------------- ABOUT -> ABOUT FACES -------------------------- /////
+// MODULAR : ✔
+
+.about_faces {
+    @include container;
+}
+
+@include with-layout(16 0) {
+    .about_faces-item {
+        position: relative;
+        margin-bottom: 20px;
+        background: rgba(35, 24, 24, 0.9);
+        line-height: 0;
+        @include breakpoint($gp-tablet-portrait) {
+            @include span(8 of 16);
+            margin-bottom: 0;
+            background: none;
+            &:nth-child(2n) {
+                @include span(8 of 16 omega);
+            }
+        }
+
+        @include breakpoint($gp-desktop-small) {
+            @include span(4 of 16);
+            &:nth-child(4n) {
+                @include span(4 of 16 omega);
+            }
+            &:nth-child(2n) {
+                @include span(4 of 16);
+            }
+            body.bio & {
+                @include span(16 of 16);
+            }
+        }
+    }
+}
+
+
+.about_faces-item-link {
+    @include transition(all 200ms ease-out);
+    position: relative;
+    display: block;
+    overflow: hidden;
+    &:hover {
+        text-decoration: none;
+    }
+    @include breakpoint($gp-tablet-portrait) {
+        &:after {
+            @include transition(all 200ms ease-out);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(35, 24, 24, 0.9);
+            content: '';
+        }
+    }
+
+    .about_faces .about_faces-item:first-child & {
+        margin-bottom: 30px;
+        @include breakpoint($gp-tablet-portrait) {
+            margin-bottom: 0;
+        }
+
+        &:after {
+            @include transition(all 200ms ease-out);
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 100%;
+            background: #ff3333;
+            content: '';
+        }
+        .about_faces-item-text {
+            @include transform(translateY(-45%));
+            position: absolute;
+            top: 45%;
+            @include breakpoint($gp-tablet-portrait) {
+                @include transform(translateY(-55%));
+                top: 55%;
+            }
+        }
+        .about_faces-item-name {
+            color: #FAFAFA;
+            font-size: 32px;
+            font-family: "MuseoSans-900";
+            line-height: 43px;
+            @include breakpoint($gp-tablet-portrait) {
+                font-size: 32px;
+                line-height: 43px;
+            }
+
+            @include breakpoint($gp-desktop-small) {
+                font-size: 23px;
+                line-height: 32px;
+            }
+
+            @include breakpoint($gp-desktop-medium) {
+                font-size: 32px;
+                line-height: 43px;
+            }
+        }
+        .about_faces-item-text {
+            padding: 0 20px;
+        }
+    }
+    .about_faces .about_faces-item:nth-child(n+2) & {
+        &:hover {
+            z-index: 10;
+            background: rgba(255, 100, 100, 0);
+            background-position: -100% 100%;
+            &:after {
+                bottom: 100%;
+            }
+            .about_faces-item-text {
+                top: -100%;
+            }
+        }
+    }
+}
+
+.about_faces-item-image {
+    z-index: 1;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+}
+
+.about_faces-item-text {
+    @include transition(all 200ms ease-out);
+    @include transform(translateY(none));
+    position: relative;
+    top: 0;
+    z-index: 2;
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+    line-height: 24px !important;
+    @include breakpoint($gp-tablet-portrait) {
+        @include transform(translateY(-55%));
+        position: absolute;
+        top: 55%;
+        margin-top: 0;
+        margin-bottom: 0;
+    }
+}
+
+.about_faces-item-name {
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+    color: #fafafa;
+    text-decoration: none;
+    font-size: 26px;
+    font-family: "MuseoSans-700";
+    line-height: 32px;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 26px;
+        line-height: 32px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 17px;
+        line-height: 20px;
+    }
+
+    @include breakpoint($gp-desktop-medium) {
+        font-size: 25px;
+        line-height: 33px;
+    }
+
+    &:after {
+        position: absolute;
+        top: 100%;
+        right: 4em;
+        left: 4em;
+        display: block;
+        height: 1px;
+        background: #ff3333;
+        content: '';
+    }
+}
+
+.about_faces-item-position {
+    margin-top: 15px;
+    padding: 0px 20px;
+    color: #ddd;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-family: "MuseoSans-700";
+    line-height: 25px;
+    @include breakpoint($gp-tablet-portrait) {
+        margin-top: 16px;
+        font-size: 14px;
+        line-height: 25px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        margin-top: 14px;
+        font-size: 11px;
+        line-height: 14px;
+    }
+
+    @include breakpoint($gp-desktop-medium) {
+        font-size: 12px;
+        line-height: 20px;
+    }
+}
+
+///// -------------------------- BIO BANNER -------------------------- /////
+// MODULAR : ✔
+
+
+.bio_info {
+    @include breakpoint($gp-tablet-max) {
+      text-align: center;
+      margin-top:15px;
+    }
+
+    position: relative;
+    @include clearfix;
+
+    @include breakpoint($gp-desktop-small) {
+    height:auto;
+    z-index: 100;
+    top: -150px;
+    }
+
+}
+
+.bio_info-image {
+    //@include box-shadow(rgba(0, 0, 0, 0.2) 0px 2px 6px);
+    position:relative;
+    width: 200px;
+    //border: 8px solid #fafafa;
+
+    @include breakpoint($gp-desktop-small) {
+        margin-right: 20px;
+        float:left;
+        width: 240px;
+        border: 8px solid #fafafa;
+    }
+}
+
+.bio_info-text {
+    position: relative;
+    color: #666;
+    margin-top: 18px;
+    @include breakpoint($gp-desktop-small) {
+        margin-top:0;
+        color: #eee;
+    }
+}
+
+.bio_info-text-name {
+    font-family: "MuseoSans-700";
+    font-size: 30px;
+    color: #333;
+
+    @include breakpoint($gp-desktop-small) {
+    font-size: 70px;
+    color:#eee;
+    }
+
+}
+.bio_info-text-position {
+    display: inline-block;
+    margin-top: 12px;
+    font-size: 20px;
+    font-family: "MuseoSans-300";
+
+    @include breakpoint($gp-desktop-small) {
+        padding-bottom: 20px;
+        font-size: 30px;
+        margin-left: 8px;
+    }
+}
+
+
+///// --------------------------  BIO SOCIAL LIST  -------------------------- /////
+// MODULAR : ✔
+
+.bio_wrapper {
+    // this adjust for the absolute poistioning of the interior elements //
+    @include breakpoint($gp-desktop-small) {
+        margin-bottom: -160px;
+        top: 160px;
+    }
+}
+
+.bio_social {
+    @include breakpoint($gp-tablet-max) {
+      text-align: center;
+    }
+    position:relative;
+    margin-top:15px;
+    width: 100%;
+    @include clearfix;
+
+    @include breakpoint($gp-desktop-small) {
+      margin-top:0;
+      width:240px;
+      float:left;
+      top:-130px;
+      position:relative;
+    }
+
+}
+
+.bio_social-list {
+    @include breakpoint($gp-tablet-max) {
+        display:table;
+        margin:auto;
+    }
+    position: relative;
+}
+
+.bio_social-list-item {
+    @include transition(background 200ms ease-out);
+    position: relative;
+    position: relative;
+    display: block;
+    float: left;
+    margin-bottom: 0px;
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    color: #DDD;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: "MuseoSans-900";
+    cursor: pointer;
+    @include breakpoint($gp-desktop-small) {
+        width: 55px;
+        height: 55px;
+    }
+
+
+
+    &:hover:before {
+        background: rgba(33, 33, 33, 0.5) !important;
+    }
+    &:before {
+        @include transition(all 200ms ease-out);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        background: rgba(50, 50, 50, 0) !important;
+        content: '';
+    }
+}
+
+.bio_social-icon {
+  @include gpIcon {
+    font-size: 1.8em;
+    margin:auto;
+    @include v-align;
+  }
+}
+
+#bio_social-facebook {background: #385590;}
+#bio_social-twitter {background: #00bff3;}
+#bio_social-google {background: #dd4b39;}
+
+
+///// -------------------------- BIO PAGE -------------------------- /////
+// MODULAR : ✔
+
+.bio_body {
+    @include breakpoint($gp-tablet-max) {
+      text-align: center;
+    }
+    position:relative;
+    color: #292929;
+    font-size: 16px;
+    font-family: "MuseoSans-300";
+    line-height: 1.5em;
+    margin-top: 15px;
+    @include breakpoint($gp-desktop-small) {
+        margin-top:0;
+        @include columns(2em 2);
+        top: -220px;
+        margin-left:270px;
+    }
+
+    :last-child {
+        &:after {
+            display: inline-block;
+            margin-left: .2em;
+            width: .5em;
+            height: .5em;
+            background: rgba(35, 24, 24, 0.5);
+            content: "";
+            vertical-align: 0%;
+        }
+    }
+    a {
+        color: darken(#111111, 15%);
+        text-decoration: none;
+        font-family: "MuseoSans-300";
+    }
+}
+
+
+///// -------------------------- Landing Page For GlobalPost Sponsored Series & Special Reports   -------------------------- /////
+// MODULAR : ✔
+
+.feature_introduction {
+    @include animation(0ms, 500ms, fadeIn);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #333;
+    background-position: center center;
+    background-size: cover;
+    &:before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        content: '';
+    }
+}
+
+.feature_introduction-inner {
+    @include animation(500ms, 500ms, fadeIn);
+    @include v-align;
+    margin: auto;
+    padding: 0 10px;
+    width: 100%;
+    text-align: center;
+    opacity: 0;
+    @include breakpoint($gp-tablet-portrait) {
+        @include v-align;
+        width: 800px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        width: 1100px;
+    }
+}
+
+.feature_introduction-title {
+    @include text-shadow(#111111 0px 1px 0px);
+    color: #fff;
+    font-size: 34px;
+    font-family: "MuseoSans-900";
+    line-height: 1.2em;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 70px;
+        line-height: 1.4em;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 90px;
+    }
+}
+
+.feature_introduction-category {
+    @include text-shadow(#222222 0px 1px 0px);
+    display: block;
+    color: #fff;
+    font-size: 15px;
+    font-family: "MuseoSans-700";
+    line-height: 2.8em;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 20px;
+        font-family: "MuseoSans-900";
+        line-height: 1.9em;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 24px;
+        line-height: 1.4em;
+    }
+}
+
+.feature_introduction-subhead {
+    @include text-shadow(#111111 0px 1px 0px);
+    margin-top: 10px;
+    color: #fff;
+    font-size: 16px;
+    font-family: "MuseoSans-300";
+    line-height: 1.2em;
+    @include breakpoint($gp-tablet-portrait) {
+        margin-top: 0;
+        font-size: 22px;
+        line-height: 1.4em;
+    }
+
+    @include breakpoint($gp-desktop-medium) {
+        font-size: 27px;
+        line-height: 1em;
+    }
+}
+
+.feature_introduction-button {
+    @include border-radius(1px);
+    @include transition(background 200ms ease-out);
+    display: block;
+    margin: auto;
+    margin-top: 40px;
+    padding: 20px 12px 18px 12px;
+    width: 200px;
+    background: #fff;
+    color: rgba(20, 20, 20, 0.85);
+    vertical-align: middle;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    font-family: "MuseoSans-900";
+    cursor: pointer;
+    &:hover {
+        background: #ccc;
+        color: #333;
+    }
+    @include breakpoint($gp-desktop-medium) {
+        margin-top: 40px;
+    }
+}
+
+
+///// -------------------------- FEATURE SECONDARY NAV -  MODULE ------------------------- /////
+// MODULAR : ✔
+
+.feature_nav {
+    top: 0;
+    bottom: 0;
+    width: 100%;
+    background: #333;
+    &.horizontal {
+        position: absolute;
+        display: block;
+        width: $chapterWidth * 9;
+        height: 100%;
+        white-space: nowrap;
+    }
+}
+
+.feature_nav-chapter {
+    display: block;
+    padding: 30px 20px 25px 20px;
+    width: 100%;
+    border-bottom: 1px solid #444;
+    @include breakpoint($gp-tablet-portrait) {
+        @include transition(all 200ms ease-out);
+        float: left;
+        padding: 0;
+        padding-top: 20px;
+        padding-right: 20px;
+        padding-bottom: 25px;
+        padding-left: 20px;
+        width: $chapterWidth;
+        height: 100%;
+        border-top: 1px solid #282828;
+        border-right: 1px solid #282828;
+        cursor: pointer;
+        &:hover {
+            background: rgba(60, 60, 60, 0.5);
+        }
+    }
+}
+
+.feature_nav-chapter-title {
+    @include transition(all 200ms ease-out);
+    position: relative;
+    margin-top: 20px;
+    padding: 0px 0px 0px 0px;
+    color: #ccc;
+    white-space: normal;
+    font-size: 16px;
+    font-family: "MuseoSans-900";
+    line-height: 1.60em;
+}
+
+.feature_nav-chapter-photo {
+    @include transition(all 200ms ease-out);
+    position: relative;
+    padding-top: 58%;
+    width: 100%;
+    height: 0;
+    background: #111;
+    background-position: center center;
+    background-size: cover;
+    color: #ccc;
+}
+
+///// -------------------------- FEATURED ARTICLE MODULE -------------------------- /////
+.feature_article {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.feature_article-hero {
+    position: relative;
+    margin-bottom: -55px;
+    width: 100%;
+    height: 100vh;
+    @include breakpoint($gp-desktop-small) {
+        margin-bottom: -71px;
+    }
+}
+
+.feature_article-header {
+    @include transition(all 400ms ease-out);
+    @include v-align(35%);
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    @include breakpoint($gp-tablet-portrait) {
+        @include v-align(42%);
+        position:absolute;
+    }
+}
+
+.feature_article-header-headline {
+    @include text-shadow(#111111 0px 1px 0px);
+    margin: 17px auto;
+    max-width: 90vw;
+    color: #fff;
+    font-size: 28px;
+    font-family: "MuseoSans-900";
+    line-height: 1.2em;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 48px;
+        line-height: 1.2em;
+    }
+
+    @include breakpoint($gp-desktop-medium) {
+        max-width: 70vw;
+        font-size: 62px;
+    }
+}
+
+.feature_article-info {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+    @include breakpoint($gp-desktop-small) {
+        margin-top: 0;
+        margin-bottom: 0;
+        border: 0;
+        text-align: right;
+    }
+}
+
+.feature_article-info-byline {
+    display: inline-block;
+    //margin-bottom: 15px;
+    color: #666;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-family: "MuseoSans-700";
+    @include breakpoint($gp-desktop-small) {
+        display: block;
+        margin-bottom: 7px;
+        white-space: nowrap;
+        font-size: 14px;
+        font-family: "MuseoSans-700";
+    }
+}
+
+.feature_article-info-date {
+    display: inline-block;
+    margin-left: 5px;
+    color: #666;
+    font-size: 14px;
+    font-family: "MuseoSans-300";
+    line-height: 1.4em;
+    @include breakpoint($gp-desktop-small) {
+        display: inline-block;
+        margin-bottom: 5px;
+        margin-bottom: 20px;
+        border-bottom: 1px solid #bbb;
+        border-left: 0;
+    }
+}
+
+.feature_article-photo {
+    position: absolute;
+    top: 0;
+    bottom: 55px;
+    width: 100%;
+    background-attachment: fixed;
+    background-position: center center;
+    background-size: cover;
+    @include breakpoint($gp-desktop-small) {
+        bottom: 71px;
+    }
+
+    &:before {
+        @include transition(all 400ms ease-out);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(33, 33, 33, 0.5);
+        content: '';
+    }
+}
+
+.feature_article-body {
+    position: relative;
+    margin: auto;
+    padding: 20px;
+    max-width: 800px;
+    height: 100%;
+    @include breakpoint($gp-tablet-portrait) {
+        padding: 20px 60px 40px 60px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        @include translateX(-20px);
+        margin: auto;
+        padding: 0;
+        padding-top: 50px;
+        padding-bottom: 40px;
+        max-width: 950px;
+    }
+}
+
+.feature_article-text {
+    margin: auto;
+    color: #303030;
+    font-size: 17px;
+    font-family: "MuseoSans-300";
+    line-height: 1.7em;
+    @include breakpoint($gp-desktop-small) {
+        margin-left: 245px;
+    }
+
+    p {
+        margin-bottom: 25px;
+    }
+}
+
+
+///// --------------------------  FEATURE ARTICLE SCROLL ARROW -------------------------- /////
+// MODULAR : ✔
+
+.feature_cta {
+    @include transition(all 200ms ease-out);
+    position: absolute;
+    bottom: 125px;
+    left: 50%;
+    margin-left: -50%;
+    width: 100%;
+    color: #eee;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+
+    &:hover {
+        color: #777;
+    }
+}
+
+.feature_cta-text {
+    font-family: "MuseoSans-900";
+    font-size: 1em;
+}
+
+.feature_cta-icon {
+    @include gpIcon {
+        @include text-shadow(none);
+        vertical-align: middle;
+        font-size: 1.5em;
+    }
+}
+
+
+
+///// --------------------------  FEATURE SOCIAL LIST  -------------------------- /////
+// MODULAR : ✔
+
+.feature_article-body--left {
+    position: relative;
+    margin-top: 0;
+    width: 100%;
+    @include breakpoint($gp-desktop-small) {
+        position: absolute;
+        margin-top: 8px;
+        width: 195px;
+    }
+}
+
+.feature_social {
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    @include breakpoint($gp-desktop-small) {
+        float: right;
+        margin-bottom: 0;
+        width: 125px;
+        border: 0;
+    }
+}
+
+.feature_social-list {
+    position: relative;
+    @include clearfix;
+}
+
+.feature_social-list-item {
+    @include transition(background 200ms ease-out);
+    position: relative;
+    display: block;
+    float: left;
+    margin-bottom: 0px;
+    padding: 16px 0px 15px 5px;
+    width: 50px;
+    background: #fff;
+    color: #DDD;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: "MuseoSans-900";
+    cursor: pointer;
+    @include breakpoint($gp-desktop-small) {
+        padding: 16px 0px 13px 5px;
+        width: 100%;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        margin-bottom: 10px;
+        padding: 10px 13px 7px 10px;
+    }
+
+    &:hover:before {
+        background: rgba(33, 33, 33, 0.5);
+    }
+    &:before {
+        @include transition(all 200ms ease-out);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        background: rgba(50, 50, 50, 0);
+        content: '';
+    }
+}
+
+.feature_social-icon {
+  @include gpIcon {
+    font-size: 1.4em;
+    margin-right: .2em;
+  }
+}
+
+.feature_social-text {
+    position: relative;
+    z-index: 10;
+    display: none;
+    vertical-align: 0%;
+    @include breakpoint($gp-desktop-large) {
+        display: inline-block;
+    }
+}
+
+#feature_social-facebook {background: #385590;}
+#feature_social-twitter {background: #00bff3;}
+#feature_social-google {background: #dd4b39;}
+
+
+///// --------------------------  FEATURE ARTICLE NEXT  -------------------------- /////
+// MODULAR : ✔
+
+.next_article {
+    @include transition(all 200ms ease-out);
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-position: center 70%;
+    background-size: cover;
+    cursor: pointer;
+    @include breakpoint($gp-tablet-portrait) {
+        height: 61vh;
+    }
+
+    &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+        background: rgba(33, 33, 33, 0.4);
+        content: '';
+    }
+}
+
+.next_article-inner {
+    @include transform(translateY(-50%));
+    position: relative;
+    top: 50%;
+    z-index: 1000;
+    margin: auto;
+    width: 70vw;
+    text-align: center;
+}
+
+.next_article-label {
+    display: block;
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 18px;
+    font-family: "MuseoSans-500";
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 21px;
+        font-family: "MuseoSans-500";
+    }
+}
+
+.next_article-icon {
+   @include gpIcon {
+        margin-left: 3px;
+        vertical-align: -10%;
+    }
+}
+
+.next_article_headline {
+    @include text-shadow(#111111 0px 1px 0px);
+    z-index: 100;
+    color: #fff;
+    font-size: 28px;
+    font-family: "MuseoSans-900";
+    line-height: 1.2em;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 48px;
+        line-height: 1.2em;
+    }
+
+    @include breakpoint($gp-desktop-medium) {
+        font-size: 62px;
+    }
+}
+
+///// --------------------------  FEATURE ARTICLE NEXT  -------------------------- /////
+// MODULAR : ✔
+
+.content_filter {
+    padding-top: 5px;
+    width: 100%;
+    background: url("../images/shattered.png");
+    text-align: center;
+}
+
+.content_filter-list {
+    display: table;
+    margin: 0 auto;
+    width: auto;
+    height: 100%;
+}
+
+.content_filter-item {
+    @include transition(color 200ms ease-out);
+    position: relative;
+    display: table-cell;
+    padding: 10px 20px;
+    color: #494949;
+    vertical-align: middle;
+    text-transform: uppercase;
+    text-transform: uppercase;
+    font-size: .83em;
+    font-family: "MuseoSans-500";
+    cursor: pointer;
+    font-size: .9em;
+    &:before {
+        @include transition(all 300ms ease-out);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-bottom-width: 0;
+        content: '';
+    }
+    &.active {
+        color: #dc5555;
+        &:before {
+            border-bottom: 4px solid #dc5555;
+        }
+    }
+    &:hover {
+        color: #dc5555;
+        &:before {
+            border-bottom: 4px solid #dc5555;
+        }
+    }
+}
+
+.content_filter-item-link {
+    color: #494949;
+    text-decoration: none;
+    &:hover {
+        color: #dc5555;
+    }
+}
+
+.content_filter-item {
+    &:hover .content_filter-item-link {
+        color: #dc5555;
+    }
+}
+
+
+///// -------------------------- FOOTER - MODULE-------------------------- /////
+// MODULAR : ✔
+
+.gp_footer {
+    position: relative;
+    overflow: hidden;
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+    font-size: 65px;
+    font-family: "MuseoSans-700";
+    padding-top: 20px;
+    padding-bottom: 40px;
+    @include clearfix;
+}
+
+.gp_footer-column {
+    @include span(16 of 16);
+    overflow: hidden;
+    height: 100%;
+
+    @include breakpoint($gp-tablet-portrait) {
+        @include span(4 of 16);
+
+        &:nth-child(3n) {
+            @include span(8 of 16 omega);
+        }
+    }
+}
+
+.gp_footer-column-item {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-align: center;
+    font-family: "MuseoSans-300";
+    line-height: .26em;
+    @include breakpoint($gp-tablet-portrait) {
+        text-align: left;
+    }
+
+    &:first-child {
+        margin-top: 10px;
+        text-transform: uppercase;
+        font-size: 1.4em;
+        font-family: "MuseoSans-900";
+        line-height: .6em;
+        @include breakpoint($gp-tablet-portrait) {
+            margin-top: 0;
+            font-size: 2em;
+            line-height: .4em;
+        }
+    }
+}
+
+.gp_footer-column-item-link {
+    color: #666;
+    text-decoration: none;
+    font-size: .24em;
+    &:first-child {
+        color: #444;
+    }
+}
+
+.gp_footer-column-search {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 50px;
+    background: rgba(33, 33, 33, 0.3);
+}
+
+
+
+///// ---- Article Advertising ---- /////
+
+.gp_ad-top {
+    display: none;
+    background: #eaeaea;
+    @include breakpoint($gp-tablet-portrait) {
+        position: relative;
+        display: block;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+}
+
+.gp_ad-sidebar {
+    //background: #ddd;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    width: 0;
+
+    @include breakpoint($gp-tablet-portrait) {
+        display: block;
+        width: 360px;
+    }
+}
+
+.gp_ad-sidebar-row--top {
+    display: inline-block;
+    width: 100%;
+    height: 50%;
+}
+
+.gp_ad-sidebar-row--bottom {
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+    height: 50%;
+}
+
+.gp_ad-bottom {
+    position: relative;
+    margin-bottom: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 100%;
+    @include breakpoint($gp-tablet-portrait) {
+        padding-left: 35px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        padding-left: 120px;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        padding-left: 200px;
+    }
+
+    img {
+        width: 100%;
+        @include breakpoint($gp-tablet-portrait) {
+            width: auto;
+        }
+    }
+
+}
+
+.gp_ad-inbetweener {
+        margin-bottom: 0;
+        padding: 40px 0px 30px 0px;
+        background: #ccc;
+        text-align: center;
+}
+
+///// -------------------------- ADVERTISING - MODULE -------------------------- /////
+
+.gp_ad-300x250 {
+    position: relative;
+    top: -120px;
+    display: inline-block;
+    margin-top: 120px;
+    margin-left: 30px;
+    width: 300px;
+    height: 250px;
+    background: #777;
+    line-height: 0;
+    &.bottom {
+        position: relative;
+        top: 0;
+        display: inline-block;
+        margin: auto;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        @media (min-width: 623px) {
+            margin-bottom: 0;
+            &:nth-child(2) {
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+.gp_ad-728x90 {
+    display: table;
+    margin: auto;
+    padding-top: 40px;
+    width: 728px;
+    height: 90px;
+    background: #777;
+    text-align: center;
+    font-family: "MuseoSans-500";
+}
+
+
+.gp_ad-grid {
+    width: 300px;
+    height: 250px;
+    background: #777;
+    margin:auto;
+
+    @include breakpoint ($gp-tablet-portrait) {
+        @include v-align(50%);
+    }
+
+
+
+}
+
+
+///// --------------------------  PHOTO PAGE  -------------------------- /////
+
+.photo-wrapper {
+    position: relative;
+    //min-height:850px;
+}
+
+.photo-main {
+    position: relative;
+    display: block;
+    @include breakpoint($gp-desktop-small) {
+        position: absolute;
+        width:70%;
+        top:0;
+        bottom:0;
+    }
+}
+
+.photo-image {
+    padding-bottom: 62.571428571429%;
+    width: 100%;
+    height: 0;
+    background-position: center center;
+    background-size: cover;
+    @include breakpoint($gp-desktop-small) {
+        position: relative;
+        padding-bottom: 0;
+        height: 100%;
+    }
+}
+
+.photo-caption {
+    display: block;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    background: rgba(200, 200, 200, 0);
+    color: #eee;
+    font-size: 14px;
+    font-family: "MuseoSans-300";
+    line-height: 20px;
+    @include breakpoint($gp-desktop-small) {
+        margin-bottom: 20px;
+        font-size: 16px;
+        line-height: 1.5em;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        margin-bottom: 30px;
+    }
+}
+
+.photo-caption-author {
+    display: inline-block;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.photo-text {
+    padding: 30px 30px 30px 30px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.photo-appearsin-label {
+    margin: 2px 0 8px 0;
+    color: #ddd;
+    white-space: no-wrap;
+    font-size: 22px;
+    font-family: "MuseoSans-100";
+    @include breakpoint($gp-tablet-portrait) {
+        margin: 20px 0 12px 0;
+        font-size: 28px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 20px;
+        font-family: "MuseoSans-300";
+    }
+
+    @include breakpoint($gp-desktop-medium) {
+        display: block;
+        margin: 5px 0 20px 0;
+        font-size: 28px;
+        font-family: "MuseoSans-100";
+    }
+
+    body.landing-page & {
+        display: none;
+    }
+}
+
+.photo-appearsin-headline {
+    @include transition(all 500ms ease-out);
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 12px;
+    color: #eee;
+    font-size: 5.2vw;
+    font-family: "MuseoSans-900";
+    line-height: 1.25em;
+    &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+    }
+    @include breakpoint($gp-tablet-portrait) {
+        margin-bottom: 10px;
+        font-size: 3.5vw;
+        line-height: 1.2em;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        margin-bottom: 8px;
+        font-size: 2.0vw;
+        line-height: 1.15em;
+    }
+}
+
+.photo-appearsin-subhead {
+    color: #ddd;
+    font-size: 13px;
+    font-family: "MuseoSans-300";
+    line-height: 19px;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 13px;
+        line-height: 18px;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        font-size: 16px;
+        line-height: 22px;
+    }
+}
+
+.photo-social {
+    position: relative;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    @include breakpoint($gp-desktop-small) {
+        position: absolute;
+        top: 0;
+        right: 100%;
+        margin-top: 0;
+        opacity: .9;
+    }
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.photo-appearsin-button {
+    @include border-radius(2px);
+    @include transition(all 200ms ease-out);
+    display: block;
+    margin-top: 15px;
+    padding: 18px 0 16px 0;
+    width: 100%;
+    background: #888;
+    color: #eee;
+    text-align: center;
+    font-family: "MuseoSans-700";
+    cursor: pointer;
+    @include breakpoint($gp-tablet-portrait) {
+        margin-top: 20px;
+        padding: 18px 0 16px 0;
+        width: 300px;
+        font-size: 15px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        margin-top: 40px;
+        padding: 22px 0 20px 0;
+        width: 100%;
+        font-size: 25px;
+    }
+
+    &:hover {
+        background: #ff3333;
+        color: #fff;
+    }
+}
+
+.photo-social-list-item {
+    @include transition(background 200ms ease-out);
+    position: relative;
+    display: block;
+    float: left;
+    margin-bottom: 0px;
+    padding: 18px 0px 0px 7px;
+    width: 55px;
+    height: 55px;
+    background: #fff;
+    color: #DDD;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: "MuseoSans-900";
+    cursor: pointer;
+    &:hover:before {
+        background: rgba(33, 33, 33, 0.5) !important;
+    }
+    &:before {
+        @include transition(all 200ms ease-out);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        background: rgba(50, 50, 50, 0) !important;
+        content: '';
+    }
+}
+
+.photo-ad {
+    width: 100%;
+    padding: 40px;
+    background: #ccc;
+    text-align: center;
+    .photo-ad-inner {
+        margin: auto;
+        width: 900px;
+        height: 350px;
+        background: #666;
+    }
+}
+
+.photo-more {
+    position: relative;
+    margin-left: 0;
+    padding: 15px 15px 15px 15px;
+    width: 100%;
+    height: 100%;
+    background: rgba(33, 33, 33, 0.98);
+    @include breakpoint($gp-desktop-small) {
+        @include transition(margin-left 200ms ease-out);
+        margin-left: 60%;
+        padding: 35px 35px 35px 35px;
+        min-height: 700px;
+        width: 40%;
+    }
+
+    @include breakpoint($gp-desktop-medium) {
+        margin-left: 70%;
+        width: 30%;
+        min-height: 800px;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        min-height: 850px;
+    }
+
+    #photo-toggle-control:checked ~ & {
+        margin-left: 100%;
+        .photo-toggle-label:before {
+            @include transform(rotate(90deg));
+        }
+        .photo-toggle-label:after {
+            @include transform(rotate(0deg));
+        }
+    }
+}
+
+.photo-toggle-label {
+    @include transition(background 200ms ease-out);
+    position: absolute;
+    right: 100%;
+    bottom: 0;
+    display: block;
+    width: 50px;
+    height: 50px;
+    background: rgba(45, 45, 45, 0.95);
+    cursor: pointer;
+    &:hover {
+        background: rgba(105, 105, 105, 0.95);
+    }
+    &:before {
+        @include transform(rotate(45deg));
+        @include transition(transform 200ms ease-out);
+        position: absolute;
+        top: 45%;
+        right: 14px;
+        left: 14px;
+        height: 5px;
+        background-color: #fff;
+        content: "";
+    }
+    &:after {
+        @include transform(rotate(-45deg));
+        @include transition(transform 200ms ease-out);
+        position: absolute;
+        top: 45%;
+        right: 14px;
+        left: 14px;
+        height: 5px;
+        background-color: #fff;
+        content: "";
+    }
+}
