@@ -1,0 +1,160 @@
+
+// ///// -------------------------- Homepage Latest News Carousel -------------------------- /////
+// MODULAR : ✔
+
+.gp_carousel-wrapper {
+        height: 100px;
+        position: relative;
+        margin-top: 0;
+        margin-bottom: 0em;
+        padding: 1em 2em;
+        max-width: 4000px;
+        background: #eee;
+        background-position: center center;
+        background-repeat: repeat;
+}
+
+.gp_carousel {
+    position: absolute;
+    overflow:hidden;
+    left: 180px;
+    right: 90px;
+    height: 70px;
+  }
+
+
+.gp_carousel-list {
+    width: 20000em;
+    position: relative;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.gp_carousel-list-item {
+    float: left;
+    margin-right: 10px;
+    width: 280px;
+    height: 100%;
+    text-align: center;
+    padding: 15px 20px;
+    background: #fafafa;
+    color: #333;
+    cursor: pointer;
+    @include box-sizing(border-box);
+    @include box-shadow(rgba(0, 0, 0, 0.2) 1px 1px 1px);
+
+    &:hover {
+        background: #dfdfdf;
+    }
+    &:hover .gp_carousel-headline {
+        //text-decoration: underline;
+    }
+}
+
+.gp_carousel-headline {
+    display: block;
+    height: 100%;
+    text-align: left;
+    font-size: 14px;
+    font-family: "MuseoSans-300";
+    line-height: 1.4em;
+}
+
+.gp_carousel-control {
+    position:relative;
+    @include v-align(40%);
+    position:absolute;
+    right: 0;
+    right: 25px;
+    width: 35px;
+}
+
+.gp_carousel-control--prev {
+    width: 100%;
+    &:before {
+        @include transition(all 200ms ease-out);
+        @include transform(rotate(45deg));
+        position: absolute;
+        top: 38%;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        border-bottom: 0.07em solid #555;
+        border-left: 0.07em solid #555;
+        content: '';
+    }
+    &:hover {
+        &:before {
+            border-bottom: 0.07em solid #888;
+            border-left: 0.07em solid #888;
+        }
+    }
+}
+
+.gp_carousel-control--next {
+    right: 0;
+    left: auto;
+    width: 100%;
+    &:before {
+        @include transition(all 200ms ease-out);
+        @include transform(rotate(-45deg));
+        position: absolute;
+        top: 38%;
+        right: 0;
+        width: 20px;
+        height: 20px;
+        border-right: 0.07em solid #555;
+        border-bottom: 0.07em solid #555;
+        content: '';
+    }
+    &:hover {
+        &:before {
+            border-right: 0.07em solid #888;
+            border-bottom: 0.07em solid #888;
+        }
+    }
+}
+
+[class*="gp_carousel-shadow"] {
+    @include box-shadow(rgba(0, 0, 0, 0.65) 0px 0px 5px);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    z-index: 10;
+    width: 50px;
+}
+
+.gp_carousel-shadow-right {
+    left: 100%;
+}
+
+.gp_carousel-shadow-left {
+    right: 100%;
+}
+
+.gp_carousel-button {
+  height: 100%;
+  position:relative;
+  width: 160px;
+  float:left;
+};
+
+.gp_carousel-button-inner {
+  @include v-align(40%);
+  @include transition(all 200ms ease-out);
+  z-index: 2;
+  padding: 0px 3px 0px 3px;
+  color: #444;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 17px;
+  font-family: "MuseoSans-700";
+      a {
+          color: #444;
+          text-decoration: none;
+          &:hover {
+              text-decoration: underline;
+          }
+      }
+}

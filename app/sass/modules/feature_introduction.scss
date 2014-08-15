@@ -1,0 +1,98 @@
+
+///// -------------------------- Landing Page For GlobalPost Sponsored Series & Special Reports   -------------------------- /////
+// MODULAR : ✔
+
+.feature_introduction {
+    @include animation(0ms, 500ms, fadeIn);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background: #333;
+
+    background-position: center center;
+    background-size: cover;
+    &:before {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        content: '';
+    }
+}
+
+.feature_introduction-inner {
+    @include gpSection;
+    @include animation(500ms, 500ms, fadeIn);
+    @include v-align();
+    text-align: center;
+    opacity: 0;
+    margin-top:0 !important;
+    color: #fafafa;
+
+    @include breakpoint($gp-tablet-portrait) {
+        @include v-align(45%);
+    }
+}
+.feature_introduction-category {
+    @include text-shadow(#222222 0px 1px 0px);
+    display: block;
+    font-size: 15px;
+    font-family: "MuseoSans-700";
+    line-height: 2.8em;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 20px;
+        font-family: "MuseoSans-900";
+        line-height: 1.9em;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 24px;
+        line-height: 1.4em;
+    }
+}
+
+.feature_introduction-title {
+    @include text-shadow(#111111 0px 1px 0px);
+    font-size: 34px;
+    font-family: "MuseoSans-900";
+    line-height: 1.2em;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 70px;
+        line-height: 1.2em;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 90px;
+    }
+}
+
+
+
+.feature_introduction-subhead {
+    @include text-shadow(#111111 0px 1px 0px);
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-family: "MuseoSans-300";
+    line-height: 1.2em;
+    @include breakpoint($gp-tablet-portrait) {
+        margin-bottom: 30px;
+        font-size: 22px;
+        line-height: 1.4em;
+    }
+
+    @include breakpoint($gp-desktop-medium) {
+        font-size: 27px;
+        line-height: 1em;
+    }
+}
+
+.feature_introduction-button {
+    @extend .gp_button;
+    font-size:1.2em;
+    margin-top:40px;
+    margin: auto;
+    padding: 23px 35px 20px 35px;
+    font-family: "MuseoSans-900";
+}

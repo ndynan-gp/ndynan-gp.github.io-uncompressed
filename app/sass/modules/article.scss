@@ -1,0 +1,58 @@
+///// -------------------------- ARTICLE MODULE -------------------------- /////
+.article {
+    padding: 20px 20px 0 35px;
+
+    @include breakpoint($gp-tablet-portrait) {
+        padding: 40px 0 0 45px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        padding: 40px 0 0 35px;
+    }
+}
+
+.article-header {
+    margin: 0 0 10px 0;
+
+    @include breakpoint($gp-tablet-portrait) {
+        margin: 0 0 25px 0;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        margin: 0 360px 15px 0;
+    }
+}
+
+.article-inner {
+    position: relative; // Setups up .gp_ad-sidebar that is absolute poistioned
+}
+
+.article-content {
+    @include breakpoint($gp-tablet-portrait) {
+        margin-right: 360px;
+    }
+}
+
+.article-body {
+    position: relative;
+    margin-top: 15px;
+    width: 100%;
+    height: 100%;
+    @include breakpoint($gp-desktop-small) {
+        margin-top: 40px;
+    }
+}
+
+// Margin is used as offset from social tools
+.article-text {
+    @extend .gp_body--medium;
+    max-width: 700px;
+
+    @include breakpoint($gp-desktop-small) {
+        margin-left: 85px;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        margin-left: 165px;
+    }
+}

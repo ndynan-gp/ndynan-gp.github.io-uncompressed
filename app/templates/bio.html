@@ -173,9 +173,7 @@
                 </div>
 
                 <div id="l_header-right">
-                    <a class="header_button mobile-hidden tablet-visible background-none">
-                        <span class="header_button-cta">Remove Ads</span>
-                    </a><a class="header_button--right mobile-hidden">
+                    <a class="header_button--right mobile-hidden">
                         <i class=" header_button-icon icon-info"></i>
                     </a><a class="header_button--right" id="header_button-share" data-activate="fullscreen_social">
                       <i class="header_button-icon header_button-export"></i>
@@ -307,7 +305,7 @@
           <div id="l_content-wrapper">
               <div class="scroll-area" id="l_content">
                   <div id="l_content-inner">
-                      <div class="gp_banner gp_banner--large gp_section" id="landing_page-banner" data-activate="landing_page-banner" style="background-image: url(../images/money.jpg)">
+                      <div class="gp_banner--large gp_section" id="landing_page-banner" data-activate="landing_page-banner" style="background-image: url(../images/money.jpg)">
                       </div>
 
 
@@ -321,19 +319,22 @@
                             </div>
 
                             </div>
-                          <div class="bio_social">
-                                  <ul class="bio_social-list">
-                                      <li class="bio_social-list-item" id="bio_social-facebook">
-                                          <i class="bio_social-icon icon-facebook"></i>
-                                      </li>
-                                      <li class="bio_social-list-item" id="bio_social-twitter">
-                                          <i class="bio_social-icon icon-twitter"></i>
-                                      </li>
-                                      <li class="bio_social-list-item" id="bio_social-google">
-                                          <i class="bio_social-icon icon-google-plus"></i>
-                                      </li>
-                                  </ul>
-                          </div>
+                          <div class="gp_social--bio">
+                                <ul class="gp_social-list--center">
+                                    <li class="gp_social-list-item" id="gp_social-facebook">
+                                        <i class="gp_social-icon icon-facebook"></i>
+                                        <span class="gp_social-text mobile-hidden tablet-hidden">facebook</span>
+                                    </li>
+                                    <li class="gp_social-list-item" id="gp_social-twitter">
+                                        <i class="gp_social-icon icon-twitter"></i>
+                                        <span class="gp_social-text mobile-hidden tablet-hidden">twitter</span>
+                                    </li>
+                                    <li class="gp_social-list-item" id="gp_social-google">
+                                        <i class="gp_social-icon icon-google-plus"></i>
+                                        <span class="gp_social-text mobile-hidden tablet-hidden">google</span>
+                                    </li>
+                                </ul>
+                            </div>
 
                           <div class="bio_body">
                             <p>As Editor of GlobalPost, Thomas Mucha oversees GlobalPost's editorial operations. He also writes a Society of American Business Editors and Writers' (SABEW) Best in Business Award-winning column on global business and economics, as well as GlobalPost's Macro blog on the global economy.</p>
@@ -347,7 +348,7 @@
 
                       <section class="gp_section">
                           <h1 class="gp_section-headline paddless">More From This Author</h1>
-                        <div class="grid grid_11_a">
+                        <div class="grid gp_grid--third-w-advertising">
                              <a class="content_item" href="article.html">
                                 <div class="content_item-photo" style="background-image: url(http://farm8.staticflickr.com/7403/13413177795_5e0a6d63c5_h.jpg)">
                                 </div>
@@ -425,8 +426,27 @@
         </div><!-- l-main-inner -->
       </div><!-- l-main -->
 
+      <!-- build:js(.) scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
+    <script src="../../bower_components/modernizr/modernizr.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+
+    <!--
     <script src="../scripts/vendor.js"></script>
     <script src="../scripts/scripts.js"></script>
+    -->
+    <script src="../scripts/vendor/handlebars-v1.3.0.js"></script>
+    <script src="../scripts/vendor/scrollMonitor.js"></script>
+    <script src="../scripts/vendor/iscroll-probe.js"></script>
+    <script src="../scripts/vendor/jcarousel/jcarousel.js"></script>
+    <script src="../scripts/vendor/jcarousel/jcarousel-responsive.js"></script>
+    <script src="../scripts/data.js"></script>
+    <script src="../scripts/plugins.js"></script>
+    <script src="../scripts/vendor/helpers/jquery.fancybox-buttons.js"></script>
+    <script src="../scripts/main.js"></script>
+
 
 
   </body>

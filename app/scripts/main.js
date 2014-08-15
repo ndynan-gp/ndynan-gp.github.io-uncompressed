@@ -4,16 +4,16 @@ var GP = {
         vars: {
             $body: $('body'),
             $html: $('html'),
-            $overlay: $('#latest_news-wrapper'),
+            $overlay: $('#l_content-wrapper-overlay'),
             $lMain: $("#l_main"),
-            $lNav: $("#l_navigation"),
-            $darkenMain: $("#l_content--darken"),
-            $darkenNav: $("#l_navigation-primary--darken"),
-            $menu: $('.about_menu').find('a'),
+            $lNav: $("#l_nav"),
+            $darkenMain: $("#darken-main"),
+            $darkenNav: $("#darken-nav"),
+            $menu: $('.about-menu').find('a'),
             $section: $('.about-wrapper'),
             $horizontalSecondaryNav: $("#l_navigation-secondary-horizontal"),
             $verticalSecondaryNav: $("#l_navigation-secondary-vertical"),
-            $headerButton: $('.header_button, .header_button--right, .header_button--left'),
+            $headerButton: $('.header_button'),
             $headerInfoButton: $('#header_button-info'),
             $shareButton: $('#header_button-share'),
             $bannerArrow: $('#landing_page-banner'),
@@ -78,12 +78,11 @@ var GP = {
 
             v.$navHeaderExplore.on('click', function() {
                 GP.common.activate(this);
-                v.$lMain.toggleClass("active-nav-countries");
+                v.$lMain.toggleClass("active-nav-explore");
             });
 
             (v.$headerButton).on('click', this._headerActive);
-
-            $('#content_filter-item-menu').on('click', function() {
+            $('#secondary-header-item-menu').on('click', function() {
                 GP.common.activate(this);
                 v.$lMain.toggleClass("active-nav");
                 $('#header_button-navigation').addClass('active');
@@ -111,8 +110,8 @@ var GP = {
 
 
             // Event Handler For Mobile Nave Handler
-            if ($('#l_navigation-handle').length > 0) {
-                $('#l_navigation-handle').on('click', function() {
+            if ($('#l_nav-handle').length > 0) {
+                $('#l_nav-handle').on('click', function() {
                     if (v.$verticalSecondaryNav.hasClass('active')) {
                         v.$verticalSecondaryNav.removeClass('active');
                     } else {
@@ -160,7 +159,7 @@ var GP = {
         _headerActive: function() {
             var v = GP.common.vars;
 
-            var isLatestButton = $(this).is('#js-header_button-latest');
+            var isLatestButton = $(this).is('#header_button-latest');
             if (isLatestButton) {
                 GP.common.showOverlay();
             } else {
@@ -171,13 +170,13 @@ var GP = {
                 $lMain = $("#l_main");
 
             if (isNavHeaderExplore) {
-                if ($lMain.hasClass('active-nav-countries')) {
-                    $lMain.removeClass('active-nav-countries');
+                if ($lMain.hasClass('active-nav-explore')) {
+                    $lMain.removeClass('active-nav-explore');
                 } else {
-                    $lMain.addClass('active-nav-countries');
+                    $lMain.addClass('active-nav-explore');
                 }
             } else {
-                $lMain.removeClass('active-nav-countries');
+                $lMain.removeClass('active-nav-explore');
             }
 
             if ($(this).hasClass('active')) {
@@ -192,7 +191,7 @@ var GP = {
             }
 
             if (!($(this).is('#header_button-share'))) {
-                $('#fullscreen_social').removeClass('active');
+                $('#social-main').removeClass('active');
             }
 
         },
@@ -239,7 +238,7 @@ var GP = {
         },
         _navClose: function() {
             var v = GP.common.vars;
-            v.$lMain.removeClass("active-nav-countries");
+            v.$lMain.removeClass("active-nav-explore");
             v.$darkenNav.removeClass('active');
         },
         CreateScroll: function() {
@@ -286,8 +285,8 @@ var GP = {
                     $('#l_content').data('scroller', rightScroll);
                 }
 /*
-                if ($('#l_navigation').length > 0) {
-                    v.navScroll = new IScroll('#l_navigation', {
+                if ($('#l_nav').length > 0) {
+                    v.navScroll = new IScroll('#l_nav', {
                         scrollbars: true,
                         mouseWheel: true,
                         interactiveScrollbars: true,
@@ -313,7 +312,7 @@ var GP = {
             }
 
             if (v.$horizontalSecondaryNav.length > 0) {
-                v.topScroll = new IScroll('#l_navigation-secondary-horizontal', {
+                v.topScroll = new IScroll('#l_nav-secondary-horizontal', {
                     eventPassthrough: true,
                     scrollbars: true,
                     mouseWheel: true,
@@ -338,6 +337,33 @@ var GP = {
     homepage: {
         init: function() {
             var v = GP.common.vars;
+            $('#breaking_news-text-arrows .icon-circle-arrow-right').on('click', function() {
+                $('#headline-1').css("display", 'none');
+                $('#headline-2').css("display", 'inline-block');
+            });
+
+            $('#breaking_news-text-arrows .icon-circle-arrow-left').on('click', function() {
+                $('#headline-1').css("display", 'inline-block');
+                $('#headline-2').css("display", 'none');
+            });
+
+            $('#ca-container').contentcarousel();
+
+            if ($('#scroll-button').length > 0) {
+
+                $('#scroll-button').on('click touchstart', function() {
+                    var body = ($('#breaking_news').position().top) + "px";
+                    if (Modernizr.touch) {
+                        setTimeout(function() {
+                            v.rightScroll.scrollToElement('#feature-article-body-id', 1000, null, null, IScroll.utils.ease.quadratic);
+                        }, 0);
+
+                    } else {
+                        $('#l_content-inner').scrollTo(body, 800);
+                    }
+                });
+            }
+
         }
     },
     landing: {
@@ -348,6 +374,7 @@ var GP = {
 
             v.$horizontalSecondaryNav.append(streamClone);
             v.$horizontalSecondaryNav.children().addClass("horizontal");
+
 
             v.$bannerArrow.on('click', function() {
                 GP.common.activate(this);
@@ -481,12 +508,12 @@ var GP = {
                 } : {
                     top: 10
                 }, $("#l_content")),
-                    $topHeadline = $(".header-article_headline"),
+                    $topHeadline = $(".header-article-headline"),
                     articleID = $(el).find('.article').attr('id'),
                     $articleStreamItem = $(".article_stream-item");
 
                 var updateActiveArticle = function() {
-                    var articleHeadline = $(el).find(".article_headline").text();
+                    var articleHeadline = $(el).find(".article-headline").text();
                     $topHeadline.text(articleHeadline);
 
                     $articleStreamItem.each(function(i, el) {
@@ -535,10 +562,10 @@ var GP = {
             if ($('#scroll-button').length > 0) {
 
                 $('#scroll-button').on('click touchstart', function() {
-                    var body = ($('#feature_article-body-id').position().top) + "px";
+                    var body = ($('#feature-article-body-id').position().top) + "px";
                     if (Modernizr.touch) {
                         setTimeout(function() {
-                            v.rightScroll.scrollToElement('#feature_article-body-id', 1000, null, null, IScroll.utils.ease.quadratic);
+                            v.rightScroll.scrollToElement('#feature-article-body-id', 1000, null, null, IScroll.utils.ease.quadratic);
                         }, 0);
 
                     } else {
@@ -580,7 +607,7 @@ var GP = {
         },
         _aboutSelectSection: function(e) {
             var v = GP.common.vars;
-            var $button = (!e) ? $('.about_menu [href = ' + location.hash + ']') : $(this),
+            var $button = (!e) ? $('.about-menu [href = ' + location.hash + ']') : $(this),
                 href = $button.attr('href');
 
             if (href.match(/^#/)) {

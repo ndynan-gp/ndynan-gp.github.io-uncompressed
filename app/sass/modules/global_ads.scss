@@ -1,0 +1,129 @@
+
+///// ---- Article Advertising ---- /////
+
+.gp_ad-top {
+    display: none;
+    background: #eaeaea;
+    @include breakpoint($gp-tablet-portrait) {
+        position: relative;
+        display: block;
+        padding-top: 16px;
+        padding-bottom: 16px;
+    }
+}
+
+.gp_ad-sidebar {
+    //background: #ddd;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    display: none;
+    width: 0;
+
+    @include breakpoint($gp-tablet-portrait) {
+        display: block;
+        width: 360px;
+    }
+}
+
+.gp_ad-sidebar-row--top {
+    display: inline-block;
+    width: 100%;
+    height: 50%;
+}
+
+.gp_ad-sidebar-row--bottom {
+    display: inline-block;
+    margin-top: 20px;
+    width: 100%;
+    height: 50%;
+}
+
+.gp_ad-bottom {
+    position: relative;
+    margin-bottom: 30px;
+    padding-right: 10px;
+    padding-left: 10px;
+    width: 100%;
+    @include breakpoint($gp-tablet-portrait) {
+        padding-left: 35px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        padding-left: 120px;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        padding-left: 200px;
+    }
+
+    img {
+        width: 100%;
+        @include breakpoint($gp-tablet-portrait) {
+            width: auto;
+        }
+    }
+
+}
+
+.gp_ad-inbetweener {
+        margin-bottom: 0;
+        padding: 40px 0px 30px 0px;
+        background: #ccc;
+        text-align: center;
+}
+
+///// -------------------------- ADVERTISING - MODULE -------------------------- /////
+
+.gp_ad-300x250 {
+    position: relative;
+    top: -120px;
+    display: inline-block;
+    margin-top: 120px;
+    margin-left: 30px;
+    width: 300px;
+    height: 250px;
+    background: #777;
+    line-height: 0;
+    &.bottom {
+        position: relative;
+        top: 0;
+        display: inline-block;
+        margin: auto;
+        margin-bottom: 20px;
+        margin-left: 0px;
+        @media (min-width: 623px) {
+            margin-bottom: 0;
+            &:nth-child(2) {
+                margin-left: 20px;
+            }
+        }
+    }
+}
+
+.gp_ad-728x90 {
+    display: table;
+    margin: auto;
+    padding-top: 40px;
+    width: 728px;
+    height: 90px;
+    background: #777;
+    text-align: center;
+    font-family: "MuseoSans-500";
+}
+
+
+.gp_ad-grid {
+    width: 300px;
+    height: 250px;
+    background: #777;
+    margin:auto;
+
+    @include breakpoint ($gp-tablet-portrait) {
+        @include v-align(50%);
+    }
+
+
+
+}

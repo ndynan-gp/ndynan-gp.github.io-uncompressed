@@ -1,0 +1,73 @@
+
+///// -------------------------- FOOTER - MODULE-------------------------- /////
+// MODULAR : ✔
+
+.gp_footer {
+    position: relative;
+    overflow: hidden;
+    margin-top: 40px;
+    width: 100%;
+    text-align: center;
+    font-size: 65px;
+    font-family: "MuseoSans-700";
+    padding-top: 20px;
+    padding-bottom: 40px;
+    @include clearfix;
+}
+
+.gp_footer-column {
+    @include span(16 of 16);
+    overflow: hidden;
+    height: 100%;
+
+    @include breakpoint($gp-tablet-portrait) {
+        @include span(4 of 16);
+
+        &:nth-child(3n) {
+            @include span(8 of 16 omega);
+        }
+    }
+}
+
+.gp_footer-column-item {
+    display: block;
+    margin: 0;
+    padding: 0;
+    text-align: left;
+    text-align: center;
+    font-family: "MuseoSans-300";
+    line-height: .26em;
+    @include breakpoint($gp-tablet-portrait) {
+        text-align: left;
+    }
+
+    &:first-child {
+        margin-top: 10px;
+        text-transform: uppercase;
+        font-size: 1.4em;
+        font-family: "MuseoSans-900";
+        line-height: .6em;
+        @include breakpoint($gp-tablet-portrait) {
+            margin-top: 0;
+            font-size: 2em;
+            line-height: .4em;
+        }
+    }
+}
+
+.gp_footer-column-item-link {
+    color: #666;
+    text-decoration: none;
+    font-size: .24em;
+    &:first-child {
+        color: #444;
+    }
+}
+
+.gp_footer-column-search {
+    margin-top: 15px;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 50px;
+    background: rgba(33, 33, 33, 0.3);
+}

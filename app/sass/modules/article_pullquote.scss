@@ -1,0 +1,81 @@
+///// --------------------------  Article Pull Quote -------------------------- /////
+// MODULAR : ✔
+
+@mixin pullquote {
+  margin: 1.4em 0;
+    @include transition(all 200ms ease-in);
+    width: 100%;
+    padding: 20px;
+    cursor:pointer;
+
+    &:hover .gp_pullquote-social {
+        background: #dc5555;
+    }
+    &:hover .gp_pullquote-social_icons {
+        color: #fff;
+    }
+}
+
+.gp_pullquote {
+    @include pullquote;
+}
+
+.gp_pullquote--left {
+    @include pullquote;
+    float: left;
+    margin: 10px 35px 10px 0px;
+    padding:0;
+
+    @include breakpoint($gp-desktop-medium) {
+        width: 50%;
+    }
+}
+
+.gp_pullquote--right {
+    @include pullquote;
+    float: right;
+    margin: 10px 0px 10px 35px;
+    padding:0 ;
+    @include breakpoint($gp-desktop-medium) {
+        width: 50%;
+    }
+}
+
+.gp_pullquote-social {
+    position: relative;
+    margin-bottom: 15px;
+    @include transition(all 200ms ease-in);
+    display: block;
+    width: 100%;
+    text-align: right;
+    padding: 10px 15px 6px 0;
+    background: #eeeeee;
+}
+
+.gp_pullquote-social_icons {
+    @include gpIcon {
+    margin-left: 13px;
+    color: #aaa;
+    font-size: 18px;
+        &:hover {
+            color: #551111 !important;
+        }
+    }
+}
+
+.gp_pullquote-text {
+    font-family: "MuseoSans-300Italic";
+    font-size: 36px;
+    line-height: 1.35em;
+    color: #dc5555;
+    text-transform: uppercase;
+    display:block;
+}
+
+.gp_pullquote-author {
+    font-family: "MuseoSans-500";
+    font-size: 14px;
+    color: #666;
+    line-height: 3em;
+    text-transform: uppercase;
+}

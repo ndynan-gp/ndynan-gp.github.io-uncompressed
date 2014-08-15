@@ -1,4 +1,15 @@
 /// ---------------------> Visibility Classes <--------------------- ///
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+}
+
 .scrolling .scrolling-hidden {
     display: none;
     visibility:visible;
@@ -48,6 +59,12 @@
     }
 }
 
+.desktop-large-hidden {
+    @include breakpoint($gp-desktop-large-only) {
+        display: none !important;
+    }
+}
+
 .parent-active-visible {
     display: none !important;
     .active > & {
@@ -67,6 +84,9 @@
 .background-none {
   background:none !important;
 }
+
+.float--right {float:right;}
+.float--left {float:left;}
 
 
 /// feature articles have logo with grey replaced for tablet and smaller

@@ -241,7 +241,7 @@
     bottom: 0;
     left: 0;
     z-index: 0;
-    background-color: #eee;
+    background-color: #fafafa;
     background-size: 100% auto;
     background-position: 50% -10vw;
     background-repeat: no-repeat;
@@ -494,7 +494,40 @@ $chapterWidth: 350px;
 
 
 .gp_section {
-    @include gpSection;
+    @include clearfix;
+    @include container;
+    margin-top: 1em;
+    max-width: 2200px;
+
+        @include breakpoint($gp-phone) {
+            padding: 0 1.5em;
+        }
+
+
+        @include breakpoint($gp-tablet-only) {
+            padding: 0 3em;
+        }
+
+        @include breakpoint($gp-tablet-portrait) {
+            margin-top: 2em;
+        }
+
+        @include breakpoint($gp-desktop-small) {
+            padding: 0 5em;
+        }
+
+        @include breakpoint(1281px) {
+            padding: 0 10em;
+        }
+
+        @include breakpoint(1360px) {
+            padding: 0 16em;
+            margin-top: 1.5em;
+        }
+
+        @include breakpoint($gp-desktop-largest) {
+            padding: 0 18em;
+}
 }
 
 

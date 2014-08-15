@@ -9,57 +9,11 @@
   }
 }
 
-///// -------------------------- Banner Mixin -------------------------- /////
-
-@mixin gpBanner {
-    @include transition(all 200ms ease-out);
-    position: relative;
-    top: 0px;
-    z-index: 100;
-    display: block;
-    display: table;
-    overflow: hidden;
-    padding-top: 45px;
-    width: 100%;
-    background: #333;
-    background-attachment: fixed;
-    background-position: bottom center;
-    background-size: cover;
-    text-decoration: none;
-    margin-top:0; // This is added to prevent gp_section from adding margin //
-    @include breakpoint($gp-tablet-portrait) {
-        padding-top: 40px;
-        padding-bottom: 5px;
-    }
-    &:before {
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: -1;
-        background: rgba(33, 33, 33, 0.8);
-        content: '';
-    }
+@mixin paddless {
+    padding: 0 !important;
 }
-
-
-/// Margining and Padding Global Classes ///
-@mixin paddless {padding: 0 !important;}
-@mixin marginless {margin: 0 !important;}
-
-///// -------------------------- Head Info Mixins -------------------------- /////
-
-@mixin headerInfoLabel {
-    vertical-align: 5%;
-    font-size: .47em;
-    font-family: "MuseoSans-300";
-}
-
-@mixin headerInfoDescription {
-    vertical-align: 4%;
-    font-size: .45em;
-    font-family: "MuseoSans-700";
+@mixin marginless {
+    margin: 0 !important;
 }
 
 ///// -------------------------- GP Section -------------------------- /////
@@ -74,7 +28,7 @@
       @content;
     } @else {
         @include breakpoint($gp-phone) {
-            padding: 0 1em;
+            padding: 0 1.5em;
         }
 
 
@@ -106,81 +60,10 @@
 
 }
 
-///// -------------------------- Social Item in Fullscreen_Social -------------------------- /////
-
-@mixin fullscreenSocialItem {
-    cursor:pointer;
-    @include transition(all 200ms ease-out);
-    position: relative;
-    display: block;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-    color: #DDD;
-    text-align: center;
-
-    &:hover:before {
-        background: rgba(33, 33, 33, 0.5) !important;
-    }
-    &:before {
-        @include transition(all 200ms ease-out);
-        position: absolute;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        z-index: 0;
-        background: rgba(50, 50, 50, 0) !important;
-        content: '';
-    }
-    &:hover .fullscreen_social-icon {
-        @include translate3d(-1.8em, 0.25em, -5.5em, 0.8em);
-        text-shadow: 0 0 10px #fff;
-        opacity: 1;
-        // softens jagged edges from 3D transform of font
-        &.icon-twitter {
-            @include translate3d(-4em, 0.25em, -5.5em, 0.8em);
-        }
-        &.icon-google-plus {
-            @include translate3d(-4em, 0.25em, -5.5em, 0.8em);
-        }
-        &.icon-export {
-            @include translate3d(-4.25em, 0.225em, -5.5em, 0.8em);
-        }
-    }
-    &:hover .fullscreen_social-text {
-        @include translateX(0);
-        @include breakpoint($gp-tablet-portrait) {
-            @include translateX(40px);
-        }
-    }
-}
-///// -------------------------- Header Button -------------------------- /////
-
-@mixin headerButton {
-      @include user-select(none);
-      @include transition(background 100ms ease-out);
-      display: inline-block;
-      padding: 0px $header_button_padding;
-      height: 100%;
-      color: $lightBackground;
-      cursor: pointer;
-
-      @include breakpoint($gp-desktop-small) {
-          &:hover {
-              color: #fff;
-          }
-      }
-
-      &.active {
-          color: #fff;
-      }
-
-}
-
 ///// -------------------------- GP ICONS -------------------------- /////
 
 @mixin gpIcon($color:inherit, $valign: middle) {
+    //@include transition(color 100ms linear);
     position: relative;
     display: inline-block;
     text-align: center;
@@ -197,20 +80,6 @@
     vertical-align: $valign;
     @content
 };
-
-///// -------------------------- GP LOGO -------------------------- /////
-
-@mixin gpLogo {
-  display: inline-block;
-  color: $white;
-  font-size: 1em;
-  line-height: 1em;
-  text-decoration: none;
-  font-weight: normal;
-  font-family: "globalpost_logosregular";
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
 
 
 ///// -------------------------- Columns Mixin -------------------------- /////
@@ -386,4 +255,3 @@ $shadowBlurLarger: 20px;
         left: 0;
     }
 }
-
