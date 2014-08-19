@@ -412,8 +412,13 @@
                 </div>
                 <div id="l_content">
                     <div class="scroll-area" id="l_content-inner">
-                         <div class="gp_banner gp_banner--largest gp_section" id="landing_page-banner" data-activate="landing_page-banner" style="background-image: url(http://farm8.staticflickr.com/7403/13413177795_5e0a6d63c5_h.jpg)">
-                          </div>
+                                        <div class="gp_banner gp_banner--largest gp_section" id="landing_page-banner" data-activate="landing_page-banner" style="background-image: url('http://farm8.staticflickr.com/7403/13413177795_5e0a6d63c5_h.jpg')">
+                                           <div class="gp_banner-text--center">
+                                             <div class="feature_introduction-title">The Great Divide</div>
+                                             <span class="feature_introduction-subhead">Global income inequality and its costs</span>
+                                           </div>
+
+                                        </div>
                     <section class="gp_section">
                           Sample Text
                     </section>
@@ -428,28 +433,25 @@
 
 
 
- <!-- build:js(.) scripts/vendor.js -->
+       <!-- build:js(.) scripts/vendor.js -->
     <!-- bower:js -->
-    <script src="../../bower_components/jquery/dist/jquery.js"></script>
     <script src="../../bower_components/modernizr/modernizr.js"></script>
+    <script src="../../bower_components/jquery/dist/jquery.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
-    <!--
-    <script src="../scripts/vendor.js"></script>
-    <script src="../scripts/scripts.js"></script>
-    -->
-    <script src="../scripts/vendor/handlebars-v1.3.0.js"></script>
-    <script src="../scripts/vendor/scrollMonitor.js"></script>
-    <script src="../scripts/vendor/iscroll-probe.js"></script>
-    <script src="../scripts/vendor/jcarousel/jcarousel.js"></script>
-    <script src="../scripts/vendor/jcarousel/jcarousel-responsive.js"></script>
-    <script src="../scripts/data.js"></script>
-    <script src="../scripts/plugins.js"></script>
-    <script src="../scripts/vendor/helpers/jquery.fancybox-buttons.js"></script>
-    <script src="../scripts/main.js"></script>
+        <!-- build:js({.tmp,app}) scripts/scripts.js -->
+        <script src="../scripts/vendor/handlebars-v1.3.0.js"></script>
+        <script src="../scripts/vendor/scrollMonitor.js"></script>
+        <script src="../scripts/vendor/iscroll-probe.js"></script>
+        <script src="../scripts/vendor/jcarousel/jcarousel.js"></script>
+        <script src="../scripts/vendor/jcarousel/jcarousel-responsive.js"></script>
+        <script src="../scripts/data.js"></script>
+        <script src="../scripts/plugins.js"></script>
+        <script src="../scripts/vendor/helpers/jquery.fancybox-buttons.js"></script>
+        <script src="../scripts/main.js"></script>
 
-
+        <!-- endbuild -->
 </body>
 
 </html>

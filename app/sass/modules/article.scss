@@ -1,6 +1,6 @@
 ///// -------------------------- ARTICLE MODULE -------------------------- /////
 .article {
-    padding: 20px 20px 0 35px;
+    padding: 30px 20px 0 35px;
 
     @include breakpoint($gp-tablet-portrait) {
         padding: 40px 0 0 45px;
@@ -12,10 +12,10 @@
 }
 
 .article-header {
-    margin: 0 0 10px 0;
+    margin: 0 20px 15px 0;
 
     @include breakpoint($gp-tablet-portrait) {
-        margin: 0 0 25px 0;
+        margin: 0 30px 25px 0;
     }
 
     @include breakpoint($gp-desktop-small) {

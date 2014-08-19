@@ -9,7 +9,7 @@
       height: 100%;
       color: $lightBackground;
       cursor: pointer;
-
+      text-decoration: none;
       @include breakpoint($gp-desktop-small) {
           &:hover {
               color: #fff;
@@ -19,7 +19,6 @@
       &.active {
           color: #fff;
       }
-
 }
 
 ///// -------------------------- HEADER BUTTONS - MODULE ------------------------- /////

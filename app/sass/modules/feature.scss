@@ -32,8 +32,6 @@
 .feature_article-headline {
     @extend .gp_header--large;
     @include text-shadow(#111111 0px 1px 0px);
-    color: #fafafa;
-
 }
 
 .feature_article-info {
@@ -88,7 +86,7 @@
         right: 0;
         bottom: 0;
         left: 0;
-        background: rgba(33, 33, 33, 0.5);
+        background: rgba(33, 33, 33, 0.6);
         content: '';
     }
 }

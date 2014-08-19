@@ -17,7 +17,7 @@
         top: 0;
         bottom: 0;
         width: 100%;
-        background: rgba(0, 0, 0, 0.5);
+        background: rgba(33, 33, 33, 0.6);
         content: '';
     }
 }
@@ -54,38 +54,16 @@
 }
 
 .feature_introduction-title {
-    @include text-shadow(#111111 0px 1px 0px);
-    font-size: 34px;
-    font-family: "MuseoSans-900";
-    line-height: 1.2em;
-    @include breakpoint($gp-tablet-portrait) {
-        font-size: 70px;
-        line-height: 1.2em;
-    }
+  @extend .gp_header--largest;
+  @include text-shadow(#111111 0px 1px 0px);
 
-    @include breakpoint($gp-desktop-small) {
-        font-size: 90px;
-    }
-}
+ }
 
 
 
 .feature_introduction-subhead {
-    @include text-shadow(#111111 0px 1px 0px);
-    margin-bottom: 15px;
-    font-size: 16px;
-    font-family: "MuseoSans-300";
-    line-height: 1.2em;
-    @include breakpoint($gp-tablet-portrait) {
-        margin-bottom: 30px;
-        font-size: 22px;
-        line-height: 1.4em;
-    }
-
-    @include breakpoint($gp-desktop-medium) {
-        font-size: 27px;
-        line-height: 1em;
-    }
+  @extend .gp_subhead--large;
+  @include text-shadow(#111111 0px 1px 0px);
 }
 
 .feature_introduction-button {

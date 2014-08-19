@@ -77,10 +77,13 @@
     font-size: 12px;
     line-height: 17px;
     @include breakpoint($gp-tablet-portrait) {
-        margin-left: 85px;
+        margin-left: 115px;
     }
 
     @include breakpoint($gp-desktop-small) {
+        margin-left: 0;
+    }
+    @include breakpoint($gp-desktop-large) {
         margin-left: 115px;
     }
 }

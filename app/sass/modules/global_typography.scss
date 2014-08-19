@@ -10,6 +10,20 @@
 //// Headers Size, Weight, & Color ////
 
 .gp_header--largest {
+    font-size: 34px;
+    font-family: "MuseoSans-900";
+    line-height: 1.2em;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 65x;
+        line-height: 1.2em;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 80px;
+    }
+}
+
+.gp_header--larger {
     text-transform: uppercase;
     font-size: 28px;
     font-family: "MuseoSans-900";
@@ -21,7 +35,7 @@
 
 .gp_header--large {
     font-size: 28px;
-    font-family: "MuseoSans-900";
+    font-family: "MuseoSans-700";
     line-height: 1.2em;
     @include breakpoint($gp-tablet-portrait) {
         font-size: 48px;
@@ -36,7 +50,7 @@
 
 .gp_header--medium {
     font-size: 28px;
-    font-family: "MuseoSans-900";
+    font-family: "MuseoSans-700";
     line-height: 34px;
     margin: 0px 0 10px 0;
     @include breakpoint($gp-desktop-small) {
@@ -91,6 +105,22 @@
 }
 
 //// Subhead  ////
+.gp_subhead--large {
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-family: "MuseoSans-300";
+    line-height: 1.2em;
+    @include breakpoint($gp-tablet-portrait) {
+        margin-bottom: 30px;
+        font-size: 22px;
+        line-height: 1.4em;
+    }
+
+    @include breakpoint($gp-desktop-medium) {
+        font-size: 27px;
+        line-height: 1em;
+    }
+}
 
 .gp_subhead--medium {
     font-family: "MuseoSans-300";
@@ -264,7 +294,16 @@
 }
 
 .gp_grid-subhead--light {
-   color: #ccc;
+     @extend .gp_grid-subhead--dark;
+
+  @include breakpoint($gp-tablet-portrait) {
+     color: #ddd;
+     a {
+          color: #ddd;
+          text-decoration: none;
+          @include transition(all 100ms ease-out);
+      }
+  }
 }
 
 
