@@ -45,5 +45,3 @@ Icon
 .fseventsd
 Icon^M^M
 .sass-cache
-node_modules/
-app/bower_components/
