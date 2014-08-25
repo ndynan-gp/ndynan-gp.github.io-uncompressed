@@ -1,0 +1,60 @@
+///// --------------------------  Content Filter  -------------------------- /////
+
+.content_filter {
+    padding-top: 5px;
+    width: 100%;
+    background: url("../images/shattered.png");
+    text-align: center;
+}
+
+.content_filter-list {
+    display: table;
+    margin: 0 auto;
+    width: auto;
+    height: 100%;
+}
+
+.content_filter-item {
+    @include transition(color 200ms ease-out);
+    position: relative;
+    display: table-cell;
+    padding: 10px 20px;
+    color: #494949;
+    vertical-align: middle;
+    text-transform: uppercase;
+    text-transform: uppercase;
+    font-family: "MuseoSans-500";
+    cursor: pointer;
+    font-size: .8em;
+    z-index: 1;
+    &:before {
+        @include transition(all 300ms ease-out);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        border-bottom-width: 0;
+        content: '';
+        z-index: -1;
+    }
+    &.active {
+        color: #dc5555;
+        &:before {
+            border-bottom: 4px solid #dc5555;
+        }
+    }
+    &:hover {
+        color: #dc5555;
+        &:before {
+            border-bottom: 4px solid #dc5555;
+        }
+        a {
+            color: #dc5555;
+        }
+    }
+    a {
+        color: #494949;
+        text-decoration: none;
+    }
+}

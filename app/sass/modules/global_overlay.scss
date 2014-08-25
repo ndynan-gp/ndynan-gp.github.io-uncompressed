@@ -1,0 +1,28 @@
+
+@mixin colorOverlay($color: (rgba(33, 33, 33, 0.7))){
+  &:before {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: $color;
+        content: '';
+    }
+}
+
+.gp_overlay--light {
+@include colorOverlay(rgba(230, 230, 230, 0.5))
+}
+
+.gp_overlay--light-strong {
+@include colorOverlay(rgba(230, 230, 230, 0.9))
+}
+
+.gp_overlay--dark {
+@include colorOverlay(rgba(33, 33, 33, 0.7))
+}
+
+.gp_overlay--dark-strong {
+@include colorOverlay(rgba(33, 33, 33, 0.9))
+}

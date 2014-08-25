@@ -1,0 +1,33 @@
+///// --------------------------  FEATURE ARTICLE SCROLL ARROW -------------------------- /////
+// MODULAR : ✔
+
+.feature_arrow {
+    position: absolute;
+    bottom: 100px;
+    left: 50%;
+    margin-left: -50%;
+    width: 100%;
+    color: #eee;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+
+    &:hover {
+        color: #777;
+    }
+}
+
+.feature_arrow-text {
+    @include transition(all 100ms ease-out);
+    font-family: "MuseoSans-900";
+    font-size: 1em;
+}
+
+.feature_arrow-icon {
+    @include gpIcon {
+        @include text-shadow(none);
+        vertical-align: middle;
+        font-size: 1.5em;
+    }
+}

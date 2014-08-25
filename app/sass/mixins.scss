@@ -1,0 +1,263 @@
+@mixin clearfix {
+   &:after {
+    display: block;
+    visibility: hidden;
+    clear: both;
+    height: 0;
+    content: ".";
+    line-height: 0;
+  }
+}
+
+@mixin paddless {
+    padding: 0 !important;
+}
+@mixin marginless {
+    margin: 0 !important;
+}
+
+///// -------------------------- GP Section -------------------------- /////
+//// Custom Breakpoints add to avoid overflow and above fold issues ////
+@mixin gpSection($useContent:false) {
+    @include clearfix;
+    @include container;
+    margin-top: 1em;
+    max-width: 2200px;
+
+    @if $useContent {
+      @content;
+    } @else {
+        @include breakpoint($gp-phone) {
+            padding: 0 1.5em;
+        }
+
+
+        @include breakpoint($gp-tablet-only) {
+            padding: 0 3em;
+        }
+
+        @include breakpoint($gp-tablet-portrait) {
+            margin-top: 2em;
+        }
+
+        @include breakpoint($gp-desktop-small) {
+            padding: 0 5em;
+        }
+
+        @include breakpoint(1281px) {
+            padding: 0 10em;
+        }
+
+        @include breakpoint(1360px) {
+            padding: 0 16em;
+            margin-top: 1.5em;
+        }
+
+        @include breakpoint($gp-desktop-largest) {
+            padding: 0 18em;
+        }
+    }
+
+}
+
+///// -------------------------- GP ICONS -------------------------- /////
+
+@mixin gpIcon($color:inherit, $valign: middle) {
+    //@include transition(color 100ms linear);
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    text-transform: none;
+    font-weight: normal;
+    font-style: normal;
+    font-variant: normal;
+    font-family: 'icomoon';
+    cursor: pointer;
+    speak: none;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: $color;
+    vertical-align: $valign;
+    @content
+};
+
+
+///// -------------------------- Columns Mixin -------------------------- /////
+
+@mixin css-columns($column-count: 2, $column-gap: 2em) {
+    -webkit-column-count: $column-count;
+    -moz-column-count: $column-count;
+    column-count: $column-count;
+    -webkit-column-gap: $column-gap;
+    -moz-column-gap: $column-gap;
+    column-gap: $column-gap;
+}
+
+///// -------------------------- Fade In/Out Animations -------------------------- /////
+
+@mixin keyframes($animationName) {
+    @-webkit-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-moz-keyframes #{$animationName} {
+        @content;
+    }
+
+    @-o-keyframes #{$animationName} {
+        @content;
+    }
+
+    @keyframes #{$animationName} {
+        @content;
+    }
+}
+
+@include keyframes(fadeOut) {
+    0% {
+        z-index: 10001;
+        display: block;
+        // you can also use mixins inside this mixin!
+        opacity: 1;
+    }
+    99% {
+        z-index: 1;
+        display: block;
+        opacity: 0;
+    }
+    100% {
+        z-index: 0;
+        display: none;
+        opacity: 0;
+    }
+}
+
+
+@include keyframes(fadeIn) {
+    0% {
+        display: block;
+        // you can also use mixins inside this mixin!
+        opacity: 0;
+    }
+    100% {
+        display: block;
+        opacity: 1;
+    }
+}
+
+
+@mixin animation($delay, $duration, $animation) {
+    -webkit-animation-name: $animation;
+    -moz-animation-name: $animation;
+    -o-animation-name: $animation;
+    animation-name: $animation;
+    -webkit-animation-duration: $duration;
+    -moz-animation-duration: $duration;
+    -o-animation-duration: $duration;
+    animation-duration: $duration;
+    -webkit-animation-delay: $delay;
+    /* this prevents the animation from restarting! */
+    -moz-animation-delay: $delay;
+    /* this prevents the animation from restarting! */
+    -o-animation-delay: $delay;
+    /* this prevents the animation from restarting! */
+    animation-delay: $delay;
+    -webkit-animation-fill-mode: forwards;
+    -moz-animation-fill-mode: forwards;
+    -o-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+    /* this prevents the animation from restarting! */
+}
+
+.show {
+    @include animation(0ms, 1000ms, fadeIn);
+}
+
+.hidden {
+    @include animation(0ms, 1000ms, fadeOut);
+    z-index: 10;
+}
+
+
+/////// ----- Vertical Positioning ----- ////
+
+.v-align-center {
+    @include transform(translateY(-40%));
+    position: relative;
+    top: 40%;
+}
+
+.v-align-center-55 {
+    @include transform(translateY(-55%));
+    position: relative;
+    top: 55%;
+}
+
+.v-align-center-50 {
+    @include transform(translateY(-50%));
+    position: relative;
+    top: 50%;
+}
+
+@mixin v-align($ammount:50%) {
+    @include transform(translateY(-($ammount)));
+    position: relative;
+    top: $ammount;
+}
+
+@mixin h-align($ammount:50%) {
+    left: $ammount;
+    @include transform(translateX(-($ammount)));
+}
+
+@mixin vh-align($ammountV:50%, $ammountH:50%){
+    left: $ammountH;
+    top: $ammountV;
+    position:relative;
+    @include transform(translateX(-($ammountH)) translateY(-($ammountV)));
+}
+
+/// -------------------> Clipped Shadow Classes <------------------ ///
+
+$shadowBlur: 10px;
+$shadowBlurLarger: 20px;
+
+[class*="clipped-shadow"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    &:before {
+        position: absolute;
+        display: block;
+        box-shadow: 0 0 $shadowBlurLarger rgba(0, 0, 0, 0.36), inset 0 0 0px 1px #dddddd;
+        content: '';
+    }
+}
+
+.clipped-shadow-right-inset {
+    &:before {
+        top: -$shadowBlur;
+        right: 0;
+        bottom: -$shadowBlur;
+        left: -$shadowBlur;
+        box-shadow: inset 0 0 $shadowBlur rgba(0, 0, 0, 0.16), inset 0 0 0px 1px #dddddd;
+    }
+    .active > & {
+        visibility: hidden;
+    }
+}
+
+.clipped-shadow-right {
+    right: -$shadowBlurLarger;
+    &:before {
+        top: 0;
+        right: $shadowBlurLarger;
+        bottom: 0;
+        left: 0;
+    }
+}

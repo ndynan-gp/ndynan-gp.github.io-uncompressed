@@ -1,0 +1,131 @@
+
+///// -------------------------- Banner Mixin -------------------------- /////
+
+@mixin gpBanner {
+    @include transition(all 200ms ease-out);
+    position: relative;
+    top: 0px;
+    z-index: 100;
+    display: table;
+    overflow: hidden;
+    width: 100%;
+    background: #333;
+    background-position: center center;
+    background-size: cover;
+    text-decoration: none;
+    margin-top:0; // This is added to prevent gp_section from adding margin //
+    //this handles the height with a bit of padding incase the contents are large //
+    min-height: 25px;
+    padding-top:20px;
+    padding-bottom:20px;
+
+    @include breakpoint($gp-tablet-portrait) {
+        padding-top:35px;
+        padding-bottom:35px;
+    }
+}
+
+@mixin gpBannerText {
+    @include transition(all 200ms ease-out);
+    position: relative;
+    display: table-cell;
+    color: #FFFFFF;
+    cursor: pointer;
+    padding-left: 35px;
+    vertical-align: middle;
+    //helps offset the size of the text//
+    padding-top:.4em;
+
+}
+
+
+///// -------------------------- BANNER MODULE -------------------------- /////
+// MODULAR : ✔
+
+
+.gp_banner--small {
+  @include gpBanner;
+   @include breakpoint($gp-tablet-portrait) {
+      padding: 70px 15px 30px 25px;
+    }
+
+
+}
+
+.gp_banner--medium {
+    @include gpBanner;
+
+    @include breakpoint($gp-tablet-portrait) {
+        min-height: 200px;
+    }
+}
+
+.gp_banner--large {
+  @include gpBanner;
+   min-height:100px;
+  @include breakpoint($gp-tablet-portrait) {
+      min-height:350px;
+  }
+}
+
+.gp_banner--largest {
+  @include gpBanner;
+   @include breakpoint($gp-tablet-portrait) {
+      min-height:500px;
+  }
+}
+
+.gp_banner-text {
+    @include gpBannerText;
+}
+
+.gp_banner-text--stream {
+    @include gpBannerText;
+    font-size: 40px;
+    margin:0;
+    padding:0;
+}
+
+.gp_banner-text--center {
+   @include gpBannerText;
+   text-align: center;
+   padding:0;
+}
+
+.gp_banner-subhead {
+    position: relative;
+    display: none;
+    color: #FFFFFF;
+    text-transform: none;
+    font-family: "MuseoSans-500";
+    margin-top:.8em;
+
+    @include breakpoint($gp-tablet-portrait) {
+        display: block;
+        font-size: 16px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 20px;
+    }
+}
+
+.gp_banner-body {
+    @include transition(all 200ms ease-out);
+    display: none;
+    text-transform: none;
+    position: relative;
+    display: block;
+    margin-top:1em;
+    color: #fff;
+    font-size: 17px;
+    font-family: "MuseoSans-300";
+    line-height: 1.6em;
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 16px;
+    }
+}
+
+
+

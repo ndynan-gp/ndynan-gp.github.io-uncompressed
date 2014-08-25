@@ -1,0 +1,122 @@
+/// ---------------------> Visibility Classes <--------------------- ///
+.visually-hidden {
+    position: absolute;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    margin: -1px;
+    padding: 0;
+    width: 1px;
+    height: 1px;
+    border: 0;
+}
+
+.scrolling .scrolling-hidden {
+    display: none;
+    visibility:visible;
+}
+
+.scrolling .scrolling-visible {
+    display: block;
+    visibility:visible;
+
+}
+
+.mobile-hidden {
+  @include breakpoint($gp-phone) {
+    display: none !important;
+  }
+}
+
+.mobile-visible {
+    @include breakpoint($gp-tablet-portrait) {
+        display: none !important;
+    }
+}
+
+.tablet-hidden {
+    @include breakpoint($gp-tablet-only) {
+        display: none !important;
+    }
+}
+
+.tablet-visible {
+    @include breakpoint($gp-tablet-only) {
+        display: block;
+
+    }
+}
+
+.desktop-hidden {
+    @include breakpoint($gp-desktop-small) {
+        display: none !important;
+
+    }
+}
+
+.desktop-visible {
+    @include breakpoint($gp-desktop-small) {
+        display: block;
+    }
+}
+
+.desktop-large-hidden {
+    @include breakpoint($gp-desktop-large-only) {
+        display: none !important;
+    }
+}
+
+.parent-active-visible {
+    display: none !important;
+    .active > & {
+        display: block;
+    }
+}
+
+.absolute-center {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+
+.background-none {
+  background:none !important;
+}
+
+.float--right {float:right;}
+.float--left {float:left;}
+
+
+/// feature articles have logo with grey replaced for tablet and smaller
+/// All these need to be replaced with Angular driven generic Active and Scrolling classes
+
+// .header_logo {
+//     body.scrolling.articles & {
+//         @include breakpoint($gp-desktop-small) {
+//             display: none;
+//         }
+//     }
+// }
+
+.header_logo_simple {
+    body.scrolling.articles & {
+        @include breakpoint($gp-desktop-small) {
+            display: inline-block;
+        }
+    }
+}
+#l_navigation-secondary-horizontal {
+    body.feature.l_navigation-secondary-active & {
+        top: 0px;
+    }
+}
+
+#l_content--darken {
+    &.active {
+        @include animation(0ms, 200ms, fadeIn);
+        pointer-events: auto;
+        visibility: visible;
+    }
+}

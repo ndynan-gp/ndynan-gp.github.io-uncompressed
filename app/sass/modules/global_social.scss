@@ -1,0 +1,157 @@
+///// -------------------------- ARTICLE SOCIAL TOOLS -------------------------- /////
+// MODULAR : ✔
+
+/// Social buttons are constrained by wrappers
+.gp_social {
+   width:100%;
+}
+
+.gp_social--article {
+  @extend .gp_social;
+    margin-bottom:10px;
+    @include breakpoint($gp-desktop-small) {
+        position: absolute;
+        top: 5px;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+      }
+
+    @include breakpoint($gp-desktop-large) {
+        width: 125px;
+    }
+}
+
+.gp_social--feature {
+  @extend .gp_social;
+  position:relative;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #ddd;
+  top:0;
+
+  @include breakpoint($gp-desktop-small) {
+      float: right;
+      margin-bottom: 0;
+      border: 0;
+  }
+}
+
+.gp_social--bio {
+    @extend .gp_social;
+    margin-top:15px;
+    @include clearfix;
+    text-align: center;
+
+    @include breakpoint($gp-desktop-small) {
+      margin-top:0;
+      width:240px;
+      float:left;
+      top:-130px;
+      position:relative;
+    }
+
+}
+
+//This is for sticky calculations//
+.gp_social-inner {
+  @include breakpoint($gp-desktop-small) {
+    position: absolute;
+    top: -115px;
+    margin-top: 115px;
+    width: 100%;
+  }
+
+}
+
+.gp_social-list {
+    @include clearfix;
+}
+
+.gp_social-list--center {
+  @extend .gp_social-list;
+  display:inline-block;
+  position:relative;
+}
+
+.gp_social-list-item {
+    @include transition(background 200ms ease-out);
+    position: relative;
+    position: relative;
+    display: block;
+    margin-bottom: 0px;
+    padding: 12px 0px 15px 3px;
+    width: 45px;
+    height: 45px;
+    background: #fff;
+    color: #DDD;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-family: "MuseoSans-900";
+    cursor: pointer;
+    float:left;
+
+
+    @include breakpoint($gp-desktop-small) {
+        height: auto;
+        margin-bottom:10px;
+        padding: 12px 15px 11px 15px;
+        width:160px;
+        float: right;
+    }
+
+    &:hover:before {
+        background: rgba(33, 33, 33, 0.5) !important;
+    }
+
+    &:before {
+        @include transition(all 200ms ease-out);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        background: rgba(50, 50, 50, 0) !important;
+        content: '';
+    }
+}
+
+//This is for article page which scales//
+.gp_social-list-item--article {
+  @extend .gp_social-list-item;
+  @include breakpoint($gp-desktop-small) {
+      padding: 16px 0px 13px 5px;
+      width: 100%;
+      margin-bottom: 0;
+      height: auto;
+  }
+
+  @include breakpoint($gp-desktop-large) {
+      margin-bottom:10px;
+      padding: 12px 15px 11px 15px;
+
+  }
+}
+
+.gp_social-icon {
+  @include gpIcon {
+    font-size: 1.4em;
+    margin-right: .2em;
+  }
+}
+
+.gp_social-text {
+  font-size: 1.1em;
+  vertical-align: -5%;
+  z-index: 100;
+  position:relative;
+}
+
+#gp_social-facebook {background: #385590;}
+#gp_social-twitter {background: #00bff3;}
+#gp_social-google {background: #dd4b39;}
+
+
+

@@ -1,0 +1,78 @@
+
+///// -------------------------- Landing Page For GlobalPost Sponsored Series & Special Reports   -------------------------- /////
+// MODULAR : ✔
+
+// .feature_introduction {
+//     @include animation(0ms, 500ms, fadeIn);
+//     position: relative;
+//     bottom: 0;
+//     width: 100%;
+//     height: 100%;
+//     background: #333;
+
+//     background-position: center center;
+//     background-size: cover;
+//     &:before {
+//         position: absolute;
+//         top: 0;
+//         bottom: 0;
+//         width: 100%;
+//         background: rgba(33, 33, 33, 0.6);
+//         content: '';
+//     }
+// }
+
+// .feature_introduction-inner {
+//     @include gpSection;
+//     @include animation(500ms, 500ms, fadeIn);
+//     @include v-align();
+//     text-align: center;
+//     opacity: 0;
+//     margin-top:0 !important;
+//     color: #fafafa;
+
+//     @include breakpoint($gp-tablet-portrait) {
+//         @include v-align(45%);
+//     }
+// }
+
+.feature_introduction-category {
+    @include text-shadow(#222222 0px 1px 0px);
+    display: block;
+    font-size: 15px;
+    font-family: "MuseoSans-700";
+    line-height: 2.8em;
+    color: #fafafa;
+
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 20px;
+        font-family: "MuseoSans-900";
+        line-height: 1.9em;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 24px;
+        line-height: 1.4em;
+    }
+}
+
+.feature_introduction-title {
+  @extend .gp_header--largest;
+  @extend .gp_header--light;
+  @include text-shadow(#111111 0px 1px 0px);
+ }
+
+.feature_introduction-subhead {
+  @extend .gp_subhead--large;
+  @extend .gp_subhead--light;
+  @include text-shadow(#111111 0px 1px 0px);
+}
+
+.feature_introduction-button {
+    @extend .gp_button;
+    font-size:1.2em;
+    margin-top:40px;
+    margin: auto;
+    padding: 23px 35px 20px 35px;
+    font-family: "MuseoSans-900";
+}

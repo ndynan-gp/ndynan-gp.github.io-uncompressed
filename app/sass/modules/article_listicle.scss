@@ -1,0 +1,44 @@
+///// -------------------------- Article Listicle Formatting -------------------------- /////
+
+.gp_listicale-item {
+    margin-bottom: 45px;
+}
+
+.gp_listicale-item-header {
+    @include clearfix;
+    position: relative;
+    padding: 15px;
+    margin-bottom: 15px;
+    background: #eee;
+}
+
+.gp_listicale-item-number {
+    font-family: "MuseoSans-300";
+    font-size: 56px;
+    background: #dc5555;
+    padding: 20px 18px 10px 26px;
+    line-height: 1em;
+    color: #fafafa;
+    float: left;
+}
+
+.gp_listicale-item-title {
+    margin: 7px 0 0 105px;
+    font-family: "MuseoSans-300Italic";
+    font-size: 32px;
+    line-height: 1.2em;
+    color: #dc5555;
+}
+
+.gp_listicale-item-photo-credit {
+    text-align: right;
+    font-family: "MuseoSans-300Italic";
+    font-size: 12px;
+}
+
+.gp_listicale-item-photo-caption {
+    margin-top: 5px;
+    font-family: "MuseoSans-300";
+    font-size: 15px;
+    line-height: 1.75em;
+}

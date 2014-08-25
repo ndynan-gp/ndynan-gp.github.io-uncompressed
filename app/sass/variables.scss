@@ -1,0 +1,32 @@
+/// ----------------------------> Colors <---------------------------- ///
+
+$white: rgba(255, 255, 255, 1);
+$postRed: darken(rgba(230, 33, 0, 1), 5%);
+$menu: rgba(36, 36, 36, 1);
+$swooshBlue: rgba(69, 125, 222, 1);
+$buttonBackground: rgba(57, 57, 57, 1);
+$lightBackground: rgba(170, 170, 170, 1);
+
+/// ----------------------> Header Variables <------------------------ ///
+
+$headerHeight: 1.7em;
+$header_button_padding: 0.4em;
+$header_button_padding_reduced: 0.35em;
+$header_menu_padding: 0.3em;
+$topMenuHeight: 115px;
+
+/// ------------------------> Breakpoints <-------------------------- ///
+
+$gp-phone: max-width 767px;
+
+$gp-tablet-portrait: 768px;
+$gp-tablet-only: 768px 1024px;
+$gp-tablet-max: max-width 1024px;
+
+$gp-desktop-small: 1025px;
+$gp-desktop-medium: 1281px;
+$gp-desktop-large: 1480px;
+$gp-desktop-large-only: 1025px 1480px; // this is needed for social media queries//
+$gp-desktop-largest: 1600px;
+
+

@@ -1,0 +1,134 @@
+///// -------------------------- ARTICLE SOCIAL COVER -------------------------- /////
+///// -------------------------- Social Item in Fullscreen_Social -------------------------- /////
+
+@mixin fullscreenSocialItem {
+    cursor:pointer;
+    @include transition(all 200ms ease-out);
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    color: #DDD;
+    text-align: center;
+
+    &:hover:before {
+        background: rgba(33, 33, 33, 0.5) !important;
+    }
+    &:before {
+        @include transition(all 200ms ease-out);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        background: rgba(50, 50, 50, 0) !important;
+        content: '';
+    }
+    &:hover .fullscreen_social-icon {
+        @include translate3d(-1.8em, 0.25em, -5.5em, 0.8em);
+        text-shadow: 0 0 10px #fff;
+        opacity: 1;
+        // softens jagged edges from 3D transform of font
+        &.icon-twitter {
+            @include translate3d(-4em, 0.25em, -5.5em, 0.8em);
+        }
+        &.icon-google-plus {
+            @include translate3d(-4em, 0.25em, -5.5em, 0.8em);
+        }
+        &.icon-export {
+            @include translate3d(-4.25em, 0.225em, -5.5em, 0.8em);
+        }
+    }
+    &:hover .fullscreen_social-text {
+        @include translateX(0);
+        @include breakpoint($gp-tablet-portrait) {
+            @include translateX(40px);
+        }
+    }
+}
+
+/// Creates 4x4 positioning
+.fullscreen_social-item-wrapper {
+    display: none;
+    min-height: 100px;
+    width: 100%;
+    height: 25%;
+    @include breakpoint($gp-desktop-small) {
+        @include with-layout(16 0) {
+            @include span(8 of 16);
+            z-index: -2;
+            height: 50%;
+                &:nth-child(2n) {
+                    @include span(8 of 16 at 9);
+                }
+            }
+        }
+}
+
+
+.fullscreen_social-item--facebook {@include fullscreenSocialItem; background: #385590;}
+.fullscreen_social-item--twitter {@include fullscreenSocialItem; background: #00bff3;}
+.fullscreen_social-item--google {@include fullscreenSocialItem; background: #dd4b39;}
+.fullscreen_social-item--more {@include fullscreenSocialItem; background: #aaa;}
+
+.fullscreen_social-item-inner {
+  @include v-align(45%);
+}
+
+.fullscreen_social-icon {
+    @include gpIcon;
+    @include transition(all 200ms ease-out);
+    position: absolute;
+    top: 0;
+    display: block;
+    display: none;
+    color: #fff;
+    font-size: 500px;
+    line-height: 0;
+    opacity: 0.15;
+    cursor: pointer;
+    @include breakpoint($gp-tablet-portrait) {
+        display: block;
+        font-size: 1000px;
+    }
+
+    &.icon-facebook {
+        @include translate3d(-0.9em, 0.15em, -2em, 0.8em);
+        @include breakpoint($gp-tablet-portrait) {
+            @include translate3d(-0.4em, 0.3em, -0.3em, 0.8em);
+        }
+    }
+    &.icon-twitter {
+        @include translate3d(-1.9em, 0.07em, -2em, 0.8em);
+        @include breakpoint($gp-tablet-portrait) {
+            @include translate3d(-0.9em, 0.2em, -0.3em, 0.8em);
+        }
+    }
+    &.icon-google-plus {
+        @include translate3d(-1.8em, 0.1em, -2em, 0.8em);
+        @include breakpoint($gp-tablet-portrait) {
+            @include translate3d(-0.6em, 0.25em, -0.3em, 0.8em);
+        }
+    }
+    &.icon-export {
+        @include translate3d(-2.2em, 0.09em, -2em, 0.8em);
+        @include breakpoint($gp-tablet-portrait) {
+            @include translate3d(-1em, 0.25em, -0.3em, 0.8em);
+        }
+    }
+}
+
+.fullscreen_social-text {
+    @include transition(all 200ms ease-out);
+    position: relative;
+    left: 0;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 40px;
+    font-family: "MuseoSans-900";
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 80px;
+    }
+}

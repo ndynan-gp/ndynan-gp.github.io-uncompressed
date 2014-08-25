@@ -1,0 +1,424 @@
+//this mixin is applied to all headers, it finds the first link in the header, removes underline, applies hover styles
+
+[class*='gp_header'] {
+    a {
+        text-decoration: none;
+        @include transition(all 100ms ease-out);
+    }
+}
+
+//// Headers Size, Weight, & Color ////
+.gp_header--banner {
+    text-transform: uppercase;
+    font-size: 25px;
+    line-height: 1.2em;
+    font-family: "MuseoSans-900";
+    position: relative;
+    display:block;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 35px;
+        display:inline-block;
+    }
+}
+
+.gp_header--banner--light {
+  @extend .gp_header--banner;
+  font-size: 15px;
+  margin-bottom: 8px;
+  font-family: "MuseoSans-300";
+  @include breakpoint($gp-tablet-portrait) {
+        font-size: 16px;
+  }
+}
+
+
+.gp_header--largest {
+    font-size: 34px;
+    font-family: "MuseoSans-900";
+    line-height: 1.2em;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 65px;
+        line-height: 1.2em;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 80px;
+    }
+}
+
+.gp_header--larger {
+    text-transform: uppercase;
+    font-size: 28px;
+    font-family: "MuseoSans-900";
+    position: relative;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 50px;
+    }
+}
+
+.gp_header--large {
+    font-size: 28px;
+    font-family: "MuseoSans-700";
+    line-height: 1.2em;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 48px;
+        line-height: 1.2em;
+    }
+
+    @include breakpoint($gp-desktop-medium) {
+        font-size: 62px;
+    }
+}
+
+.gp_header--medium {
+    font-size: 28px;
+    font-family: "MuseoSans-900";
+    line-height: 34px;
+    margin: 0px 0 10px 0;
+    @include breakpoint($gp-desktop-small) {
+        font-size: 40px;
+        line-height: 52px;
+        margin: 0px 0 15px 0;
+    }
+}
+
+.gp_header--small {
+    font-size: 20px;
+    font-family: "MuseoSans-300";
+    @include breakpoint($gp-desktop-small) {
+        font-size: 36px;
+        line-height: 1.3em;
+        margin-bottom: 8px;
+    }
+}
+
+.gp_header--smallest {
+    font-size: 16px;
+    font-family: "MuseoSans-500";
+    line-height: 20px;
+    @include breakpoint($gp-desktop-small) {
+        font-size: 24px;
+        line-height: 29px;
+    }
+}
+
+.gp_header--light {
+    color: #fafafa;
+    a {
+        color: #fafafa;
+    }
+    &:hover {
+        a {
+            color: #dc5555;
+        }
+    }
+}
+
+.gp_header--dark {
+    color: #292929;
+    & > a {
+        color: #292929;
+    }
+    &:hover {
+        & > a {
+            color: #dc5555;
+        }
+    }
+}
+
+//// Subhead  ////
+.gp_subhead--large {
+    margin-bottom: 15px;
+    font-size: 16px;
+    font-family: "MuseoSans-300";
+    line-height: 1.2em;
+    @include breakpoint($gp-tablet-portrait) {
+        margin-bottom: 30px;
+        font-size: 22px;
+        line-height: 1.4em;
+    }
+
+    @include breakpoint($gp-desktop-medium) {
+        font-size: 27px;
+        line-height: 1em;
+    }
+}
+
+.gp_subhead--medium {
+    font-family: "MuseoSans-300";
+    font-size: 13px;
+    line-height: 19px;
+    margin-top: 8px;
+    margin-bottom: 5px;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 14px;
+        line-height: 20px;
+        margin-top: 5px;
+    }
+
+    @include breakpoint($gp-desktop-medium) {
+        margin-top: 5px;
+        font-size: 16px;
+        line-height: 18px;
+    }
+}
+
+
+.gp_subhead--light {
+    color: #eee;
+    a {
+        color: #eee;
+    }
+    &:hover {
+        a {
+            color: #dc5555;
+        }
+    }
+}
+
+.gp_subhead--dark {
+    color: #595959;
+    & > a {
+        color: #595959;
+    }
+    &:hover {
+        & > a {
+            color: #dc5555;
+        }
+    }
+}
+
+//// Body  ////
+
+.gp_body--large {
+    color: #303030;
+    font-family: "MuseoSans-500";
+    font-size: 15px;
+    line-height: 1.5em;
+    text-transform: uppercase;
+    @include breakpoint($gp-desktop-small) {
+        font-size: 17px;
+        line-height: 1.7em;
+    }
+}
+
+
+.gp_body--medium {
+    color: #252525;
+    font-family: "MuseoSans-300";
+    font-size: 15px;
+    line-height: 1.5em;
+    @include breakpoint($gp-desktop-small) {
+        font-size: 17px;
+        line-height: 1.7em;
+    }
+}
+
+//// Grid Styling ////
+.gp_grid-headline--largest {
+    font-family: "MuseoSans-700";
+    font-size: 28px;
+    line-height: 1.2em;
+    margin-bottom:.3em;
+
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 34px;
+        line-height: 1.2em;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 34px;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        font-size: 42px;
+    }
+}
+
+.gp_grid-headline--large {
+    font-family: "MuseoSans-900";
+    font-size: 24px;
+    line-height: 1.2em;
+    margin-bottom:.3em;
+
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 34px;
+        line-height: 1.2em;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 28px;
+        line-height: 1.15em;
+
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        font-size: 36px;
+    }
+}
+
+.gp_grid-headline--large-2 {
+    @include transition(all 100ms ease-out);
+    font-family: "MuseoSans-700";
+    font-size: 17px;
+    line-height: 1.35em;
+    margin-bottom: .35em;
+
+
+    @include breakpoint($gp-tablet-portrait) {
+           font-family: "MuseoSans-900";
+
+        font-size: 34px;
+        line-height: 1.2em;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 28px;
+        line-height: 1.15em;
+
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        font-size: 36px;
+    }
+}
+
+
+.gp_grid-headline--medium {
+    font-family: "MuseoSans-900";
+    font-size: 17px;
+    line-height: 1.35em;
+    margin-bottom:.3em;
+
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 26px;
+        line-height: 1.2em;
+        margin-bottom: .35em;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 28px;
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        font-size: 30px;
+    }
+}
+
+.gp_grid-headline--small {
+    @include transition(all 100ms ease-out);
+    font-family: "MuseoSans-700";
+    font-size: 17px;
+    line-height: 1.35em;
+    margin-bottom: .35em;
+
+    @include breakpoint($gp-tablet-only) {
+        font-size: 26px;
+    }
+    @include breakpoint($gp-tablet-portrait) {
+        font-family: "MuseoSans-900";
+    }
+    @include breakpoint($gp-desktop-small) {
+        font-size: 20px;
+    }
+}
+
+.gp_grid-headline--dark {
+    color: #222;
+
+    a {
+        color: #222;
+        text-decoration: none;
+        @include transition(all 100ms ease-out);
+    }
+
+    &:hover a {
+        cursor: pointer;
+        color: #dc5555;
+    }
+}
+
+.gp_grid-headline--light {
+  @extend .gp_grid-headline--dark;
+
+  @include breakpoint($gp-tablet-portrait) {
+     color: #eee;
+     a {
+          color: #eee;
+          text-decoration: none;
+          @include transition(all 100ms ease-out);
+      }
+  }
+}
+
+.gp_grid-subhead--large {
+    font-family: "MuseoSans-300";
+    font-size: 13px;
+    line-height: 1.55em;
+
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 14px;
+        line-height: 1.45em;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 15px;
+    }
+}
+
+.gp_grid-subhead--medium {
+    font-family: "MuseoSans-300";
+    font-size: 13px;
+    line-height: 1.55em;
+    @include breakpoint($gp-tablet-portrait) {
+        font-size: 14px;
+            line-height: 1.45em;
+
+    }
+}
+
+.gp_grid-subhead--dark {
+    color: #555;
+}
+
+.gp_grid-subhead--light {
+     @extend .gp_grid-subhead--dark;
+
+  @include breakpoint($gp-tablet-portrait) {
+     color: #ddd;
+     a {
+          color: #ddd;
+          text-decoration: none;
+          @include transition(all 100ms ease-out);
+      }
+  }
+}
+
+
+.gp_grid-category {
+    display: none;
+    @include breakpoint($gp-tablet-portrait) {
+        @include transition(all 100ms ease-out);
+        text-decoration: none;
+        font-family: "MuseoSans-700";
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-bottom: 1.2em;
+        display:inline-block;
+        position:relative;
+    }
+    &:hover {
+      color: #dc5555;
+      box-shadow: 0 1px 0 #dc5555;
+    }
+}
+
+.gp_grid-category--light {
+  @extend .gp_grid-category;
+  color: #eee;
+}
+
+.gp_grid-category--dark {
+  @extend .gp_grid-category;
+  color: #444;
+}

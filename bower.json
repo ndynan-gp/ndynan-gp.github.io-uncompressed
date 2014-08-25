@@ -1,0 +1,10 @@
+{
+  "name": "ndynan-gpgithubv6",
+  "version": "0.0.0",
+  "dependencies": {
+    "jquery": "~2.1.1",
+    "modernizr": "~2.8.3"
+  },
+  "devDependencies": {},
+  "appPath": "app"
+}

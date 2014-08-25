@@ -1,0 +1,643 @@
+////// --------------> GlobalPost Main Site Wrapper - Responsible for Sliding Transforms <---------------  ///////
+
+#l_main {
+    @include transition(all 200ms ease-in);
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    &.active-nav {
+        @include transform2d(translateX(290px));
+        @include breakpoint($gp-desktop-small) {
+            @include transform2d(translateX(900px));
+        }
+    }
+    &.active-nav-countries {
+        @include transform2d(translateX(600px));
+        @include breakpoint($gp-desktop-small) {
+            @include transform2d(translateX(1800px));
+        }
+    }
+}
+
+#l_main_inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    @include clearfix;
+}
+
+////// --------------> GlobalPost Content Overlays and Dropdowns <---------------  ///////
+
+#l_dropdowns {
+    @include transition(all 200ms ease-out);
+    position: absolute;
+    top: 55px;
+    bottom: 0;
+    width: 100%;
+    font-size: 42px;
+    @include breakpoint($gp-desktop-small) {
+        top: $headerHeight;
+        body.scrolling & {
+            top: 60px;
+        }
+    }
+}
+
+////// --------------> GlobalPost Slide Out Navigation <---------------  ///////
+
+#l_navigation-primary {
+    padding: 0px 0px 0px 0px;
+    @include transition(all 400ms ease-in);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    width: 290px;
+    right: 100%;
+    background: rgba(50, 50, 50, 1);
+    z-index: 100000;
+    &:before {
+        @include transition(all 200ms ease-out);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 0;
+        content: '';
+    }
+    @include breakpoint($gp-desktop-small) {
+        width: 900px;
+        background: rgba(40, 40, 40, 1);
+    }
+}
+
+.l_navigation-primary--left {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: block;
+    padding: 20px 15px 0px 15px;
+    float: left;
+    background: rgba(35, 35, 35, 1);
+    width: 100%;
+    @include breakpoint($gp-desktop-small) {
+        height: 100%;
+        width: 45%;
+        padding: 50px 40px 0px 40px;
+    }
+}
+
+.l_navigation-primary--right-top {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: block;
+    background: rgba(40, 40, 40, 1);
+    float: left;
+    width: 100%;
+    padding: 20px 15px 0px 15px;
+    @include breakpoint($gp-desktop-small) {
+        width: 55%;
+        padding: 50px 30px 0px 45px;
+    }
+}
+
+.l_navigation-primary--right-bottom {
+    overflow-x: hidden;
+    overflow-y: scroll;
+    display: block;
+    background: rgba(50, 50, 50, 1);
+    float: left;
+    width: 100%;
+    padding: 20px 15px 0px 15px;
+    @include breakpoint($gp-desktop-small) {
+        background: rgba(40, 40, 40, 1);
+        width: 55%;
+        padding: 20px 30px 30px 45px;
+    }
+}
+
+
+#l_navigation-primary--darken {
+    @include transition(all 200ms ease-out);
+    position: absolute;
+    top: 0px;
+    right: 0;
+    bottom: 0;
+    left: 0px;
+    z-index: -1;
+    background: rgba(33, 33, 33, 0);
+    cursor: pointer;
+    pointer-events: none;
+    body.scrolling & {
+        top: -18px;
+    }
+    &.active {
+        background: rgba(33, 33, 33, 0.7);
+        pointer-events: auto;
+        z-index: 1;
+    }
+}
+
+
+#l_navigation-countries {
+    @include transition(all 400ms ease-in);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 100%;
+    margin-right: 900px;
+    overflow: scroll;
+    width: 900px;
+    background-color: #151515;
+}
+
+.l_navigation-countries-inner {
+    padding: 50px 40px 0px 40px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+///// -------------------------- HEADER MENU - LAYOUT -------------------------- /////
+
+#l_header {
+    @include transition(all 200ms ease-out);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    height: $headerHeight;
+    background-color: $menu;
+    font-size: 33px;
+    line-height: $headerHeight;
+    &:before {
+        position: absolute;
+        bottom: 100%;
+        display: block;
+        margin-top: 1000%;
+        width: 100%;
+        height: 1000%;
+        background-color: $menu;
+        content: '';
+    }
+    @include breakpoint($gp-desktop-small) {
+        font-size: 42px;
+        body.scrolling & {
+            font-size: 36px;
+        }
+    }
+}
+
+#l_header-left {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+}
+
+#l_header-center {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+#l_header-right {
+    position: absolute;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    white-space: nowrap;
+}
+
+///// -------------------------- CONTENT - LAYOUT -------------------------- /////
+
+#l_content-wrapper {
+    @include transition(all 200ms ease-out);
+    position: absolute;
+    top: 55px;
+    bottom: 0;
+    width: 100%;
+
+    @include breakpoint($gp-desktop-small) {
+        font-size: 42px;
+        top: $headerHeight;
+        body.scrolling & {
+            font-size: 36px;
+        }
+    }
+}
+
+#l_content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 0;
+    background-color: #fafafa;
+    background-size: 100% auto;
+    background-position: 50% -10vw;
+    background-repeat: no-repeat;
+    font-size: 16px;
+    body.homepage &,
+    body.landing-page & {
+        margin-left: 0;
+    }
+    @include breakpoint($gp-desktop-small) {
+        body.articles & {
+            margin-left: 240px;
+        }
+        body.about & {
+            margin-left: 170px;
+        }
+        body.special-report &,
+        body.bio &,
+        body.photo & {
+            margin-left: 0;
+        }
+    }
+
+    @include breakpoint($gp-desktop-medium) {
+        margin-left: 240px;
+        body.special-report & {
+            margin-left: 0;
+        }
+        body.feature.collection & {
+            bottom: 0px;
+        }
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        body.articles & {
+            margin-left: 300px;
+        }
+        body.special-report & {
+            margin-left: 0;
+        }
+    }
+}
+
+#l_content-inner {
+    background: #fafafa;
+    @include transition(all 200ms ease-out);
+    position: absolute;
+    width: 100%;
+}
+
+#l_content--darken {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    visibility: hidden;
+    background: rgba(180, 180, 180, 0.5);
+    @include animation(0ms, 500ms, fadeOut);
+    @include breakpoint($gp-tablet-only) {
+        top: 0;
+    }
+}
+
+#l_navigation-secondary-horizontal {
+    position: absolute;
+    top: -200px;
+    right: 0px;
+    left: 0px;
+    z-index: 1;
+    height: $topMenuHeight;
+    background: #eee;
+    display: none;
+    @include breakpoint($gp-tablet-only) {
+        top: -115px;
+    }
+    @include breakpoint($gp-desktop-small) {
+        display: block;
+        height: 320px;
+        top: -320px;
+        @include transition(top 200ms ease-out);
+    }
+
+    &:after {
+        position: absolute;
+        top: 0;
+        right: -20px;
+        bottom: 0;
+        left: -20px;
+        z-index: -1;
+        display: block;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+        content: '';
+    }
+}
+
+#fullscreen_social {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    visibility: hidden;
+    //cursor:pointer;
+    background: rgba(200, 200, 200, 1);
+    @include animation(0ms, 200ms, fadeOut);
+    &.active {
+        @include animation(0ms, 200ms, fadeIn);
+        pointer-events: auto;
+        visibility: visible;
+    }
+}
+
+
+
+///// -------------------------- Secondary Navigation for Articles -------------------------- /////
+
+$menuBarSize: 380px;
+$menuBarBottom: 350px;
+$chapterWidth: 350px;
+
+#l_navigation-secondary-vertical {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 90%;
+    left: -90%;
+    margin-right: 0px;
+    background: #f7f7f7;
+    z-index: 9;
+    @include transition(left 200ms ease-out);
+    body.feature & {
+        left: auto;
+    }
+    &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 100%;
+        width: 10vw;
+        z-index: -1;
+    }
+    @include breakpoint($gp-tablet-portrait) {
+        left: -342px;
+        body.about & {
+            left: -160px;
+        }
+        &:after {
+            display: none;
+        }
+    }
+
+    &.active {
+        left: 0;
+        body.about & {
+            left: 0;
+        }
+        &:after {
+            @include transition(background-color 0 200ms linear);
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        @include breakpoint($gp-tablet-portrait) {
+            left: 0;
+        }
+    }
+    body.feature & {
+        overflow: hidden;
+        @include transition(bottom 200ms ease-out);
+          bottom: 100%;
+        width: 100%;
+        height: 100%;
+        z-index: 9;
+        top: auto;
+        background: none;
+        right: 0;
+        @include breakpoint($gp-tablet-portrait) {
+            height: $menuBarSize;
+        }
+    }
+    body.feature.l_navigation-secondary-active & {
+        bottom: 0px;
+    }
+    @include breakpoint($gp-tablet-portrait) {
+        width: 240px;
+        body.articles & {
+            width: 350px;
+            margin-right: -8px;
+        }
+        body.about & {
+            width: 170px;
+        }
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        left: 0;
+        width: 240px;
+        body.articles & {
+            width: 240px;
+        }
+        body.about & {
+            left: 0;
+        }
+    }
+
+    @include breakpoint($gp-desktop-large) {
+        width: 300px;
+        width: 220px;
+        left: 0;
+        body.articles & {
+            width: 300px;
+        }
+    }
+}
+
+.btn-nav_handle {
+    font-family: "MuseoSans-700";
+    cursor: pointer;
+    padding-top: 17px;
+    padding-left: 7px;
+    font-size: 17px;
+    color: #666;
+    overflow: hidden;
+    position: absolute;
+    display: block;
+    background: #eaeaea;
+    border-top: 1px solid  #cccccc;
+    border-right: 1px solid #cccccc;
+    border-bottom: 1px solid #cccccc;
+    border-radius: 0 40% 40% 0;
+    height: 50px;
+    width: 27px;
+    @include transform(translateY(-47%));
+    position: absolute;
+    top: 47%;
+    left: 100%;
+    margin-left: -1px;
+    bottom: 0;
+    @include breakpoint($gp-desktop-small) {
+        display: none;
+    }
+}
+
+
+
+
+///// -------------------------- SECTIONS CONTENT MODULE -------------------------- /////
+
+
+.gp_section {
+    @include clearfix;
+    @include container;
+    margin-top: 1em;
+    max-width: 2200px;
+
+        @include breakpoint($gp-phone) {
+            padding: 0 1.5em;
+        }
+
+
+        @include breakpoint($gp-tablet-only) {
+            padding: 0 3em;
+        }
+
+        @include breakpoint($gp-tablet-portrait) {
+            margin-top: 2em;
+        }
+
+        @include breakpoint($gp-desktop-small) {
+            padding: 0 5em;
+        }
+
+        @include breakpoint(1281px) {
+            padding: 0 10em;
+        }
+
+        @include breakpoint(1360px) {
+            padding: 0 16em;
+            margin-top: 2em;
+        }
+
+        @include breakpoint($gp-desktop-largest) {
+            padding: 0 18em;
+}
+}
+
+.gp_section--margin {
+  @extend .gp_section;
+  margin-top:3em;
+
+  @include breakpoint(1281px) {
+  margin-top:4em;
+  }
+}
+
+.gp_section--new {
+  @extend .gp_section;
+  @include breakpoint(1281px) {
+            padding: 0 5em;
+        }
+
+        @include breakpoint(1360px) {
+            padding: 0 5em;
+            margin-top: 2em;
+        }
+
+        @include breakpoint($gp-desktop-largest) {
+            padding: 0 4em;
+}
+}
+
+
+.gp_section-headline {
+    display: block;
+    margin-bottom: 1em;
+    padding: 25px 0px 20px 20px;
+    background: #e4e4e4;
+    color: #666;
+    font-size: 20px;
+    font-family: "MuseoSans-900";
+    @include breakpoint($gp-tablet-portrait) {
+        padding: 25px 0px 20px 20px;
+
+    }
+}
+
+.gp_section--footer {
+  @include gpSection;
+  @include marginless;
+  position: relative;
+  max-width: auto;
+  background-image: url(/images/shattered.png);
+  background-position: center center;
+  background-repeat: repeat;
+
+  &:before {
+      @include transition(all 200ms ease-out);
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 0;
+      background: rgba(33, 33, 33, 0);
+      content: '';
+  }
+}
+
+.gp_section--footer--new {
+  @extend .gp_section--footer;
+  @include breakpoint(1281px) {
+            padding: 0 5em;
+        }
+
+        @include breakpoint(1360px) {
+            padding: 0 5em;
+            margin-top: 2em;
+        }
+
+        @include breakpoint($gp-desktop-largest) {
+            padding: 0 5em;
+}
+}
+
+.gp_section--bio {
+    //When TRUE is passed to GPSECTION media queries are ignored, see mixin.scss//
+    //background: #e7e7e7;
+    @include gpSection(false) {
+    padding-top: 20px;
+    padding-bottom: 50px;
+    }
+}
+.gp_section--first {
+  @include gpSection;
+  @include breakpoint($gp-tablet-portrait) {
+      margin-top: 2em;
+  }
+  @include breakpoint(1360px) {
+      margin-top: 2em;
+  }
+}
+
+// Fix the about page
+.gp_section {
+    &.about-wrapper {
+        margin-top: -180px;
+        padding-top: 220px;
+
+        @include breakpoint($gp-phone) {
+            padding: 0 3em;
+        }
+
+        @include breakpoint($gp-tablet-portrait) {
+            padding-top: 250px;
+        }
+    }
+}

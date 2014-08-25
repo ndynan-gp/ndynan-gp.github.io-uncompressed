@@ -1,0 +1,47 @@
+///// -------------------------- Articles - Current Stream in Header -------------------------- /////
+
+///// -------------------------- Head Info Mixins -------------------------- /////
+
+@mixin headerInfoLabel {
+    vertical-align: 5%;
+    font-size: .45em;
+    font-family: "MuseoSans-300";
+    text-transform: uppercase;
+}
+
+@mixin headerInfoDescription {
+    vertical-align: 4%;
+    font-size: .43em;
+    font-family: "MuseoSans-700";
+    text-transform: uppercase;
+
+}
+
+.header_info {
+    display: none;
+    color: #ddd;
+    // @include breakpoint($gp-desktop-small) {
+    //     body.scrolling & {
+    //         display: block;
+    //     }
+    // }
+}
+
+.header_info-label--light {
+    @include headerInfoLabel;
+}
+
+.header_info-label--heavy {
+    @include headerInfoLabel;
+    font-family: "MuseoSans-700";
+}
+
+.header_info-description--light {
+    @include headerInfoDescription;
+    font-family: "MuseoSans-300";
+    font-size: .48em;
+}
+
+.header_info-description--heavy {
+    @include headerInfoDescription;
+}

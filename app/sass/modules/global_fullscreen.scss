@@ -1,0 +1,47 @@
+$smallHeader : 55px;
+$largeHeader : 71px;
+
+.gp_fullscreen {
+  position:relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.gp_fullscreen-photo {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: -$smallHeader;
+
+    @include breakpoint($gp-desktop-small) {
+        margin-bottom: -$largeHeader;
+    }
+
+
+    &:before {
+        @include transition(all 200ms ease-out);
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background: rgba(33, 33, 33, 0.7);
+        content: '';
+    }
+}
+
+.gp_fullscreen-text {
+  @include vh-align();
+  position:absolute;
+  width: 70vw;
+  text-align: center;
+
+  @include breakpoint($gp-tablet-portrait) {
+      @include vh-align(45%, 50%);
+      position:absolute;
+  }
+
+}
+
