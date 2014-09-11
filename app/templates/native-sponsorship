@@ -1,0 +1,60 @@
+<div class="gp_ad-sponsor" style="
+    text-align: center;
+    padding-bottom: 2px;
+    /* padding-top: 5px; */
+    background: #eee;
+"><div class="gp_ad-sponsorship" style="
+    background: #bfd3f5;
+    color: #444;
+    text-align: center;
+    font-size: 14px;
+    padding: 19px 0 14px 0;
+    font-family: &quot;MuseoSans-500&quot;;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+">Sponsored Post</div><div class="" style="
+    float: left;
+    margin-top: 40px;
+    padding-left: 40px;
+    font-family: &quot;MuseoSans-100&quot;;
+    font-size: 36px;
+    color: #444;
+">GP Brand Studio</div>
+
+  <img src="http://www.dealbreaker.com/images/entries/bp.png" style="
+    /* text-align: center; */
+    height: 100px;
+    margin-left: -320px;
+">
+</div>
+
+
+<div class="gp_ad-sponsor" style="
+    text-align: center;
+    padding-bottom: 2px;
+    /* padding-top: 5px; */
+    background: #eee;
+    z-index: 100;
+    position: relative;
+    margin-left: 10px;
+    width: 270px;
+    /* float: left; */
+    /* height: 10px; */
+"><div class="gp_ad-sponsorship" style="
+    background: #bfd3f5;
+    color: #444;
+    text-align: center;
+    font-size: 12px;
+    padding: 19px 5px 14px 5px;
+    font-family: &quot;MuseoSans-500&quot;;
+    text-transform: uppercase;
+    margin-bottom: 9px;
+    line-height: 1.4em;
+">Section Funded By:</div>
+
+  <img src="http://www.dealbreaker.com/images/entries/bp.png" style="
+    /* text-align: center; */
+    height: 70px;
+    /* margin-left: -320px; */
+">
+</div>

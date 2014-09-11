@@ -5,7 +5,7 @@
     font-size: 14px;
     line-height: 1.5em; // for double lines on mobile
     font-family: "MuseoSans-500";
-    color: #595959;
+    color: #666;
 }
 
 .article_attr-byline {
@@ -19,8 +19,19 @@
 }
 
 .article_attr-date {
-    color: #444;
+    color: #666;
     font-family: "MuseoSans-500";
+
+    @include breakpoint($gp_phone) {
+      display:block;
+      line-height: 1.7em;
+      font-family: "MuseoSans-500";
+    }
+    @include breakpoint($gp_tablet-portrait) {
+      line-height: 1.5em;
+      display:inline-block;
+    }
+
 }
 
 

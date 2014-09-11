@@ -120,3 +120,9 @@
         visibility: visible;
     }
 }
+
+.header_logo {
+  body.homepage & {
+    margin-right: 45px;
+  }
+}

@@ -1,5 +1,6 @@
 ///// -------------------------- ARTICLE MODULE -------------------------- /////
 .article {
+    position:relative;
     padding: 30px 20px 0 35px;
 
     @include breakpoint($gp-tablet-portrait) {
@@ -7,11 +8,24 @@
     }
 
     @include breakpoint($gp-desktop-small) {
-        padding: 40px 0 0 35px;
+        padding: 50px 0 0 35px;
+    }
+}
+
+.article--advertisingless {
+    padding: 30px 20px 0 35px;
+
+    @include breakpoint($gp-tablet-portrait) {
+        padding: 40px 30px 0 45px;
+    }
+
+    @include breakpoint($gp-desktop-small) {
+        padding: 50px 30px 0 30px;
     }
 }
 
 .article-header {
+    position:relative;
     margin: 0 20px 15px 0;
 
     @include breakpoint($gp-tablet-portrait) {
@@ -19,8 +33,38 @@
     }
 
     @include breakpoint($gp-desktop-medium) {
-        margin: 0 360px 15px 0;
+        margin: 0 360px 25px 0;
     }
+}
+
+.article-header--left {
+position:absolute;
+left:0;
+bottom:0;
+top:0;
+width: 0;
+//border-right: 1px dotted #ccc;
+overflow: hidden
+
+}
+
+.article-header--right {
+margin-left:0;
+position:relative;
+}
+
+.article-header--advertisingless {
+      max-width: 960px;
+      margin:auto;
+      margin-bottom:15px;
+
+    // @include breakpoint($gp-tablet-portrait) {
+    //     margin: 0 0px 25px 0;
+    // }
+
+    // @include breakpoint($gp-desktop-medium) {
+    //     margin: 0 0px 15px 0;
+    // }
 }
 
 .article-inner {
@@ -31,6 +75,11 @@
     @include breakpoint($gp-tablet-portrait) {
         margin-right: 360px;
     }
+}
+
+.article-content--advertisingless {
+  max-width: 960px;
+  margin:auto;
 }
 
 .article-body {
@@ -56,3 +105,4 @@
         margin-left: 165px;
     }
 }
+

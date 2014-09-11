@@ -9,23 +9,22 @@
 }
 
 .gp_photo-caption {
-    color:#333;
     font-size: 14px;
     font-family: "MuseoSans-500";
     line-height: 16px;
-    background:#eee;
-    padding: 12px;
-  }
+    padding: 20px 0 16px 0;
+    border-bottom: 1px dotted #ddd;
+}
 
 .gp_photo-desc {
-    color:#555;
+    color:#777;
     font-size: 14px;
     font-family: "MuseoSans-500";
     line-height: 16px;
 }
 
 .gp_photo-author {
-    color:#777;
+    color:#999;
     font-size: 14px;
     font-family: "MuseoSans-500";
     line-height: 16px;

@@ -1,7 +1,7 @@
 ///// -------------------------- FEATURED ARTICLE MODULE -------------------------- /////
 
 .feature_article-headline {
-    @extend .gp_header--large;
+    @extend .gp_header--larger;
     @include text-shadow(#111111 0px 1px 0px);
     width:100%;
 }
@@ -53,7 +53,7 @@
 .feature_article-date{
   @extend .article_attr-date;
   @include breakpoint($gp-phone) {
-      margin-left:5px;
+      // margin-left:5px;
   }
 }
 

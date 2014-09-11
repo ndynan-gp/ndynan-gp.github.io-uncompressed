@@ -36,12 +36,12 @@
     top: 55px;
     bottom: 0;
     width: 100%;
-    font-size: 42px;
+    font-size: 38px;
     @include breakpoint($gp-desktop-small) {
         top: $headerHeight;
-        body.scrolling & {
-            top: 60px;
-        }
+        // body.scrolling & {
+        //     top: 60px;
+        // }
     }
 }
 
@@ -131,9 +131,9 @@
     background: rgba(33, 33, 33, 0);
     cursor: pointer;
     pointer-events: none;
-    body.scrolling & {
-        top: -18px;
-    }
+    // body.scrolling & {
+    //     top: -18px;
+    // }
     &.active {
         background: rgba(33, 33, 33, 0.7);
         pointer-events: auto;
@@ -185,10 +185,10 @@
         content: '';
     }
     @include breakpoint($gp-desktop-small) {
-        font-size: 42px;
-        body.scrolling & {
-            font-size: 36px;
-        }
+        font-size: 38px;
+        // body.scrolling & {
+        //     font-size: 36px;
+        // }
     }
 }
 
@@ -226,11 +226,11 @@
     width: 100%;
 
     @include breakpoint($gp-desktop-small) {
-        font-size: 42px;
+        font-size: 38px;
         top: $headerHeight;
-        body.scrolling & {
-            font-size: 36px;
-        }
+        // body.scrolling & {
+        //     font-size: 36px;
+        // }
     }
 }
 
@@ -371,7 +371,7 @@ $chapterWidth: 350px;
     width: 90%;
     left: -90%;
     margin-right: 0px;
-    background: #f7f7f7;
+    background: #fafafa;
     z-index: 9;
     @include transition(left 200ms ease-out);
     body.feature & {
@@ -513,24 +513,49 @@ $chapterWidth: 350px;
         }
 
         @include breakpoint($gp-desktop-small) {
-            padding: 0 5em;
+            padding: 0 8em;
         }
 
-        @include breakpoint(1281px) {
-            padding: 0 10em;
+        @include breakpoint(1152px) {
+            padding: 0 9em;
         }
 
-        @include breakpoint(1360px) {
+        @include breakpoint(1280px) {
+            padding: 0 13em;
+        }
+
+        @include breakpoint(1440px) {
             padding: 0 16em;
             margin-top: 2em;
         }
 
         @include breakpoint($gp-desktop-largest) {
-            padding: 0 18em;
+            padding: 0 20em;
 }
 }
 
-.gp_section--margin {
+.gp_section--small-padding {
+  @extend .gp_section;
+    margin-top:1em;
+
+    @include breakpoint(1360px) {
+      margin-top:1em;
+    }
+}
+.gp_section--paddless-mobile {
+  @extend .gp_section;
+
+  @include breakpoint($gp-phone) {
+            margin:0;
+            padding: 0 0em;
+  }
+
+   @include breakpoint($gp-tablet-only) {
+            margin:0;
+            padding: 0 0em;
+  }
+}
+.gp_section--large-margin {
   @extend .gp_section;
   margin-top:3em;
 
@@ -539,30 +564,13 @@ $chapterWidth: 350px;
   }
 }
 
-.gp_section--new {
-  @extend .gp_section;
-  @include breakpoint(1281px) {
-            padding: 0 5em;
-        }
-
-        @include breakpoint(1360px) {
-            padding: 0 5em;
-            margin-top: 2em;
-        }
-
-        @include breakpoint($gp-desktop-largest) {
-            padding: 0 4em;
-}
-}
-
-
 .gp_section-headline {
     display: block;
-    margin-bottom: 1em;
+    margin-bottom: 1.5em;
     padding: 25px 0px 20px 20px;
     background: #e4e4e4;
     color: #666;
-    font-size: 20px;
+    font-size: 16px;
     font-family: "MuseoSans-900";
     @include breakpoint($gp-tablet-portrait) {
         padding: 25px 0px 20px 20px;
@@ -572,7 +580,7 @@ $chapterWidth: 350px;
 
 .gp_section--footer {
   @include gpSection;
-  @include marginless;
+  @extend .marginless;
   position: relative;
   max-width: auto;
   background-image: url(/images/shattered.png);

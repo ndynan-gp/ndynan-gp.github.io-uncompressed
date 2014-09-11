@@ -1,5 +1,4 @@
-$smallHeader : 55px;
-$largeHeader : 71px;
+$gpHeader : 65px;
 
 .gp_fullscreen {
   position:relative;
@@ -13,10 +12,10 @@ $largeHeader : 71px;
     width: 100%;
     background-position: center center;
     background-size: cover;
-    margin-bottom: -$smallHeader;
+    margin-bottom: -gpHeader;
 
     @include breakpoint($gp-desktop-small) {
-        margin-bottom: -$largeHeader;
+        margin-bottom: -gpHeader;
     }
 
 

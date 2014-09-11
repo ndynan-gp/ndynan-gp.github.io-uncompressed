@@ -21,6 +21,15 @@
     }
 }
 
+.gp_header--banner--large {
+  @extend .gp_header--banner;
+  font-size: 28px;
+
+  @include breakpoint($gp-tablet-portrait) {
+        font-size: 50px;
+    }
+}
+
 .gp_header--banner--light {
   @extend .gp_header--banner;
   font-size: 15px;
@@ -47,34 +56,48 @@
 }
 
 .gp_header--larger {
-    text-transform: uppercase;
-    font-size: 28px;
+    font-size: 32px;
     font-family: "MuseoSans-900";
-    position: relative;
-    @include breakpoint($gp-tablet-portrait) {
-        font-size: 50px;
+    line-height: 42px;
+    margin: 0px 0 10px 0;
+    @include breakpoint($gp-desktop-small) {
+        font-size: 58px;
+        line-height: 68px;
+        margin: 0px 0 15px 0;
     }
 }
 
 .gp_header--large {
-    font-size: 28px;
-    font-family: "MuseoSans-700";
-    line-height: 1.2em;
+    font-size: 24px;
+    font-family: "MuseoSans-900";
+    line-height: 32px;
+    margin: 0px 0 10px 0;
+
     @include breakpoint($gp-tablet-portrait) {
-        font-size: 48px;
-        line-height: 1.2em;
+    font-size: 34px;
+    line-height: 42px;
+    margin: 0px 0 10px 0;
     }
 
-    @include breakpoint($gp-desktop-medium) {
-        font-size: 62px;
+    @include breakpoint($gp-desktop-small) {
+        font-size: 46px;
+        line-height: 60px;
+        margin: 0px 0 15px 0;
     }
 }
 
 .gp_header--medium {
-    font-size: 28px;
+    font-size: 24px;
     font-family: "MuseoSans-900";
-    line-height: 34px;
+    line-height: 28px;
     margin: 0px 0 10px 0;
+
+    @include breakpoint($gp-tablet-portrait) {
+    font-size: 30px;
+    line-height: 38px;
+    margin: 0px 0 10px 0;
+    }
+
     @include breakpoint($gp-desktop-small) {
         font-size: 40px;
         line-height: 52px;
@@ -236,7 +259,7 @@
 }
 
 .gp_grid-headline--large {
-    font-family: "MuseoSans-900";
+    font-family: "MuseoSans-700";
     font-size: 24px;
     line-height: 1.2em;
     margin-bottom:.3em;
@@ -248,12 +271,12 @@
 
     @include breakpoint($gp-desktop-small) {
         font-size: 28px;
-        line-height: 1.15em;
+        line-height: 1.2em;
 
     }
 
     @include breakpoint($gp-desktop-large) {
-        font-size: 36px;
+        font-size: 34px;
     }
 }
 
@@ -266,7 +289,7 @@
 
 
     @include breakpoint($gp-tablet-portrait) {
-           font-family: "MuseoSans-900";
+           font-family: "MuseoSans-700";
 
         font-size: 34px;
         line-height: 1.2em;
@@ -285,18 +308,22 @@
 
 
 .gp_grid-headline--medium {
-    font-family: "MuseoSans-900";
+    @include transition(all 100ms ease-out);
+    font-family: "MuseoSans-700";
     font-size: 17px;
     line-height: 1.35em;
-    margin-bottom:.3em;
+    margin-bottom: .35em;
+
 
     @include breakpoint($gp-tablet-portrait) {
         font-size: 26px;
         line-height: 1.2em;
         margin-bottom: .35em;
+
     }
 
     @include breakpoint($gp-desktop-small) {
+        font-family: "MuseoSans-700";
         font-size: 28px;
     }
 
@@ -316,9 +343,9 @@
         font-size: 26px;
     }
     @include breakpoint($gp-tablet-portrait) {
-        font-family: "MuseoSans-900";
     }
     @include breakpoint($gp-desktop-small) {
+        font-family: "MuseoSans-700";
         font-size: 20px;
     }
 }
@@ -351,6 +378,30 @@
   }
 }
 
+@mixin gp_grid-headline--light {
+   color: #222;
+
+    a {
+        color: #222;
+        text-decoration: none;
+        @include transition(all 100ms ease-out);
+    }
+
+    &:hover a {
+        cursor: pointer;
+        color: #dc5555;
+    }
+
+  @include breakpoint($gp-tablet-portrait) {
+     color: #eee;
+     a {
+          color: #eee;
+          text-decoration: none;
+          @include transition(all 100ms ease-out);
+      }
+  }
+}
+
 .gp_grid-subhead--large {
     font-family: "MuseoSans-300";
     font-size: 13px;
@@ -362,7 +413,7 @@
     }
 
     @include breakpoint($gp-desktop-small) {
-        font-size: 15px;
+        font-size: 14px;
     }
 }
 
@@ -383,6 +434,19 @@
 
 .gp_grid-subhead--light {
      @extend .gp_grid-subhead--dark;
+
+  @include breakpoint($gp-tablet-portrait) {
+     color: #ddd;
+     a {
+          color: #ddd;
+          text-decoration: none;
+          @include transition(all 100ms ease-out);
+      }
+  }
+}
+
+@mixin gp_grid-subhead--light {
+  color: #555;
 
   @include breakpoint($gp-tablet-portrait) {
      color: #ddd;
@@ -416,6 +480,26 @@
 .gp_grid-category--light {
   @extend .gp_grid-category;
   color: #eee;
+}
+
+@mixin gp_grid-category--light {
+    display: none;
+    @include breakpoint($gp-tablet-portrait) {
+        @include transition(all 100ms ease-out);
+        text-decoration: none;
+        font-family: "MuseoSans-700";
+        font-size: 12px;
+        text-transform: uppercase;
+        margin-bottom: 1.2em;
+        display:inline-block;
+        position:relative;
+    }
+    &:hover {
+      color: #dc5555;
+      box-shadow: 0 1px 0 #dc5555;
+    }
+    color: #eee;
+
 }
 
 .gp_grid-category--dark {

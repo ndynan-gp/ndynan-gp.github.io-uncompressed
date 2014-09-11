@@ -12,7 +12,7 @@
 @mixin paddless {
     padding: 0 !important;
 }
-@mixin marginless {
+.marginless {
     margin: 0 !important;
 }
 
@@ -245,7 +245,7 @@ $shadowBlurLarger: 20px;
         right: 0;
         bottom: -$shadowBlur;
         left: -$shadowBlur;
-        box-shadow: inset 0 0 $shadowBlur rgba(0, 0, 0, 0.16), inset 0 0 0px 1px #dddddd;
+        box-shadow: inset 0 0 $shadowBlur rgba(0, 0, 0, 0.26), inset 0 0 0px 1px #dddddd;
     }
     .active > & {
         visibility: hidden;

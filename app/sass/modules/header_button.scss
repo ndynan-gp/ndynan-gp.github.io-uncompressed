@@ -74,7 +74,7 @@
 
 .header_button-label {
     display:inline-block;
-    padding-top: .26em;
+    padding-top: .23em;
     height: 100%;
     vertical-align: top;
     letter-spacing: .03em;
@@ -82,7 +82,7 @@
     font-family: "MuseoSans-500";
 
     @include breakpoint($gp-tablet-portrait) {
-        font-size: .4em;
+        // font-size: .4em;
     }
 }
 

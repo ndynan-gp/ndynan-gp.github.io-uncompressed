@@ -45,6 +45,7 @@
 
 .gp_banner--small {
   @include gpBanner;
+    padding-left:25px;
    @include breakpoint($gp-tablet-portrait) {
       padding: 70px 15px 30px 25px;
     }
@@ -90,6 +91,7 @@
    @include gpBannerText;
    text-align: center;
    padding:0;
+   width:750px;
 }
 
 .gp_banner-subhead {
@@ -118,11 +120,11 @@
     display: block;
     margin-top:1em;
     color: #fff;
-    font-size: 17px;
+    font-size: 13px;
     font-family: "MuseoSans-300";
     line-height: 1.6em;
 
-    @include breakpoint($gp-desktop-small) {
+    @include breakpoint($gp-tablet-portrait) {
         font-size: 16px;
     }
 }
